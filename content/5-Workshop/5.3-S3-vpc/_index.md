@@ -1,18 +1,25 @@
+
 ---
-title : "Access S3 from VPC"
-date : 
+title : "CI/CD with CodeBuild & CodePipeline"
+date :   
 weight : 3
 chapter : false
-pre : " <b> 5.3. </b> "
+pre : " <b> 5.3 </b> "
 ---
 
-#### Using Gateway endpoint
+## CI/CD Pipeline with AWS CodeBuild & CodePipeline
 
-In this section, you will create **a Gateway eendpoint** to access **Amazon S3** from **an EC2 instance**. **The Gateway endpoint** will allow upload an object to S3 buckets without using **the Public Internet**. To create an endpoint, you must specify the VPC in which you want to create the endpoint, and the service (in this case, S3) to which you want to establish the connection.
+This guideline describes how to implement a production-ready CI/CD pipeline with AWS CodePipeline and CodeBuild using GitLab as SCM. When a new Release is created in the GitLab repository, CodePipeline is triggered, CodeBuild runs the frontend and backend projects using the existing `frontend-buildspec.yml` and `backend-buildspec.yml`, and then CodePipeline deploys to ECS.
 
-![overview](/images/5-Workshop/5.3-S3-vpc/diagram2.png)
+### What you’ll do
+- 5.3.1 – Configure CodeBuild projects (frontend/backend) and trigger on GitLab Release
+- 5.3.2 – Design CodePipeline for ECS deploy and integrate post-build artifacts
 
-#### Content
+### Prerequisites
+- An IAM user/role with permissions for CodeBuild, CodePipeline, S3, ECR (if needed for GitLab token), and IAM pass role.
+- An S3 bucket for pipeline artifacts (will be created by CodePipeline wizard or you can pre-create).
+- ECR repository created.
 
-- [Create gateway endpoint](3.1-create-gwe/)
-- [Test gateway endpoint](3.2-test-gwe/)
+### Architecture Overview
+
+![CI/CD overview placeholder](/images/AWS-Bandup-Architecture.png)

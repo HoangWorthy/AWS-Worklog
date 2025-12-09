@@ -1,40 +1,32 @@
 ---
-title : "Create a gateway endpoint"
-date :   
-weight : 1
-chapter : false
-pre : " <b> 5.3.1 </b> "
+title: "Connect GitLab repo & create CodeBuild project"
+date: 
+weight: 1
+chapter: false
+pre: " <b> 5.3.1 </b> "
 ---
 
-1. Open the [Amazon VPC console](https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1#Home:)
-2. In the navigation pane, choose **Endpoints**, then click **Create Endpoint**:
+## Objective
+Configure two CodeBuild projects (frontend and backend) and a trigger from GitLab Release events that starts CodePipeline. CodePipeline invokes CodeBuild using the repository’s existing `frontend-buildspec.yml` and `backend-buildspec.yml`, and then deploys to ECS.
 
-{{% notice note %}}
-You will see **6 existing VPC endpoints** that support **AWS Systems Manager (SSM)**. These endpoints were deployed automatically by the **CloudFormation Templates** for this workshop.
-{{% /notice %}}
+## AWS Resources
+- CodeBuild projects:
+	- Frontend: Source = CodePipeline; Buildspec = `frontend-buildspec.yml`
+	- Backend: Source = CodePipeline; Buildspec = `backend-buildspec.yml`
+- CodePipeline (later step) consuming artifacts and deploying to ECS
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/endpoints.png)
+### Create CodeBuild Projects & Connect GitLab Repository
 
-3. In the Create endpoint console:
-+ Specify name of the endpoint: ```s3-gwe```
-+ In service category, choose **AWS services**
+1. In the creating new CodeBuild Project configuration section, select Default project.
+![CI/CD overview placeholder](/images/codebuild-1.png)
+1. In the Source section, choose GitLab and Band-Up repository.
+![CI/CD overview placeholder](/images/codebuild-2.png)
+1. Leave default configurations for Environment.
+![CI/CD overview placeholder](/images/codebuild-3.png)
+1. Specify Band-Up own buildspec for frontend/backend like the following image:
+![CI/CD overview placeholder](/images/codebuild-4.png)
+1. Submit and create the other frontend/backend CodeBuild project likewise.
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/create-s3-gwe1.png)
+## Summary
+You now have two CodeBuild projects (frontend and backend) ready to be invoked by CodePipeline. A GitLab Release event can trigger CodePipeline, which then runs each project with its corresponding `frontend-buildspec.yml` and `backend-buildspec.yml`. In subsequent steps, CodePipeline will take the build artifacts and deploy to ECS.
 
-+ In **Services**, type ```s3``` in the search box and choose the service with type **gateway**
-
-![endpoint](/images/5-Workshop/5.3-S3-vpc/services.png)
-
-+ For VPC, select **VPC Cloud** from the drop-down.
-+ For **Configure route tables**, select the route table that is already associated with **two subnets** (note: this is not the main route table for the VPC, but a second route table created by CloudFormation).
-
-![endpoint](/images/5-Workshop/5.3-S3-vpc/vpc.png)
-
-+ **For Policy**, leave the default option, **Full Access**, to allow full access to the service. You will deploy **a VPC endpoint policy** in a later lab module to demonstrate restricting access to **S3 buckets** based on policies.
-
-![endpoint](/images/5-Workshop/5.3-S3-vpc/policy.png)
-
-+ Do not add a tag to the VPC endpoint at this time.
-+ Click **Create endpoint**, then click x after receiving a successful creation message.
-
-![endpoint](/images/5-Workshop/5.3-S3-vpc/complete.png)

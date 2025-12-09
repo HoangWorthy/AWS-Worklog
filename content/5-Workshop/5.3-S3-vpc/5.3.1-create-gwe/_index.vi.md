@@ -1,40 +1,31 @@
 ---
-title : "Tạo một Gateway Endpoint"
-date :   
-weight : 1
-chapter : false
-pre : " <b> 5.3.1 </b> "
+title: "Kết nối repo GitLab & tạo dự án CodeBuild"
+date: 
+weight: 1
+chapter: false
+pre: " <b> 5.3.1 </b> "
 ---
 
-1. Mở [Amazon VPC console](https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1#Home:)
-2. Trong thanh điều hướng, chọn **Endpoints**, click **Create Endpoint**:
+## Mục tiêu
+Cấu hình hai dự án CodeBuild (frontend và backend) và trigger từ sự kiện Release của GitLab để khởi chạy CodePipeline. CodePipeline gọi CodeBuild dựa trên `frontend-buildspec.yml` và `backend-buildspec.yml` có sẵn trong repository, sau đó deploy lên ECS.
 
-{{% notice note %}}
-Bạn sẽ thấy 6 điểm cuối VPC hiện có hỗ trợ AWS Systems Manager (SSM). Các điểm cuối này được Mẫu CloudFormation triển khai tự động cho workshop này.
-{{% /notice %}}
+## Tài nguyên AWS
+- Dự án CodeBuild:
+	- Frontend: Source = CodePipeline; Buildspec = `frontend-buildspec.yml`
+	- Backend: Source = CodePipeline; Buildspec = `backend-buildspec.yml`
+- CodePipeline (bước sau) nhận artifact và deploy lên ECS
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/endpoints.png)
+### Tạo dự án CodeBuild & kết nối repository GitLab
 
-3. Trong Create endpoint console:
-+ Đặt tên cho endpoint: s3-gwe
-+ Trong service category, chọn **aws services**
+1. Trong phần cấu hình tạo mới CodeBuild Project, chọn Default project.
+![CI/CD overview placeholder](/images/codebuild-1.png)
+2. Ở mục Source, chọn GitLab và repository Band-Up.
+![CI/CD overview placeholder](/images/codebuild-2.png)
+3. Giữ nguyên cấu hình mặc định cho Environment.
+![CI/CD overview placeholder](/images/codebuild-3.png)
+4. Chỉ định buildspec của dự án Band-Up cho frontend/backend như hình:
+![CI/CD overview placeholder](/images/codebuild-4.png)
+5. Gửi tạo và lặp lại cho dự án CodeBuild frontend/backend còn lại.
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/create-s3-gwe1.png)
-
-+ Trong **Services**, gõ "s3" trong hộp tìm kiếm và chọn dịch vụ với loại **gateway**
-
-![endpoint](/images/5-Workshop/5.3-S3-vpc/services.png)
-
-+ Đối với VPC, chọn **VPC Cloud** từ drop-down menu.
-+ Đối với Route tables, chọn bảng định tuyến mà đã liên kết với 2 subnets (lưu ý: đây không phải là bảng định tuyến chính cho VPC mà là bảng định tuyến thứ hai do CloudFormation tạo).
-
-![endpoint](/images/5-Workshop/5.3-S3-vpc/vpc.png)
-
-+ Đối với Policy, để tùy chọn mặc định là Full access để cho phép toàn quyền truy cập vào dịch vụ. Bạn sẽ triển khai VPC endpoint policy trong phần sau để chứng minh việc hạn chế quyền truy cập vào S3 bucket dựa trên các policies.
-
-![endpoint](/images/5-Workshop/5.3-S3-vpc/policy.png)
-
-+ Không thêm tag vào VPC endpoint.
-+ Click Create endpoint, click x sau khi nhận được thông báo tạo thành công.
-
-![endpoint](/images/5-Workshop/5.3-S3-vpc/complete.png)
+## Tóm tắt
+Bạn đã có hai dự án CodeBuild (frontend và backend) sẵn sàng được gọi bởi CodePipeline. Sự kiện Release từ GitLab có thể kích hoạt CodePipeline, sau đó chạy mỗi dự án với `frontend-buildspec.yml` và `backend-buildspec.yml` tương ứng. Ở các bước tiếp theo, CodePipeline sẽ lấy artifact sau build và deploy lên ECS.
