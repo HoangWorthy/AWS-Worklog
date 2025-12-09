@@ -1,126 +1,89 @@
 ---
 title: "Event 2"
-date: 
+date: 2025-11-07
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Summary Report: “Discover Agentic AI – Amazon QuickSuite Workshop”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+-   **Demystify Agentic AI**: Define the shift from passive Generative AI to autonomous Agentic AI.
+-   **Showcase Amazon QuickSuite**: Provide the first live demonstration of this solution in Vietnam.
+-   **Enable Adoption**: Lower financial barriers through the AWS LIFT Program ($80,000 USD credit).
+-   **Facilitate Hands-on Learning**: Offer a practical environment to build AI concepts with expert guidance.
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+-   **Vivien Nguyen** – Territory Manager, AWS
+-   **Tung Cao** – Solution Architect, AWS
+-   **Cloud Kinetics Team** – Strategic Implementation Partners
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### The Paradigm Shift: From Generative to Agentic
+The workshop established a clear distinction between previous AI iterations and the current wave.
+-   **Generative AI**: Focuses on creating content (text, images, code) based on prompts.
+-   **Agentic AI**: Focuses on **autonomy** and **action**. These systems can perceive their environment, reason through complex workflows, and execute tasks independently without constant human intervention.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
 
-#### Transitioning to modern application architecture – Microservices
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+#### Unveiling Amazon QuickSuite
+This event marked the first live demonstration of Amazon QuickSuite in Vietnam.
+-   **Unified Ecosystem**: It seamlessly integrates data visualization (QuickSight) with generative capabilities (Quick Suite Q).
+-   **Speed and Agility**: The "Quick" branding emphasizes rapid deployment, allowing businesses to move from concept to implementation in a short timeframe.
+-   **Data-Centricity**: The suite is designed to process high volumes of data, which is a prerequisite for intelligent agents to make informed decisions.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Strategic Partnership & Support
+-   **Collaboration with Cloud Kinetics**: The event highlighted that while AWS provides the platform, partners like Cloud Kinetics are essential for architectural guidance and "last-mile" implementation.
+-   **Dual-Layer Support**: Attendees benefited from both platform experts (AWS) and consulting partners, de-risking the technical adoption process.
 
-#### Domain-Driven Design (DDD)
-
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
-
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+#### Financial Enablement: AWS LIFT Program
+-   **$80,000 USD Credit**: A significant financial incentive was introduced to support new customers and SMBs.
+-   **Risk Reduction**: This funding allows companies to experiment with high-performance computing and R&D without the immediate burden of infrastructure costs.
 
 ### Key Takeaways
 
 #### Design Mindset
-
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+-   **Focus on Autonomy**: When designing for Agentic AI, the goal is to build systems that act on behalf of the user, not just assist them.
+-   **Real-World Application**: Move beyond "hype" by identifying specific operational bottlenecks where an autonomous agent can add value (e.g., automated reporting, supply chain adjustments).
 
 #### Technical Architecture
+-   **The Ecosystem Approach**: Effective agents require a connected network of tools. QuickSuite acts as the connective tissue between data sources and action logic.
+-   **Infrastructure Readiness**: Creating an AWS account and setting up the correct environment is the critical first step to accessing these advanced capabilities.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+#### Strategic Implementation
+-   **Information Asymmetry**: Early adopters of QuickSuite gain a competitive advantage by utilizing tools that the broader market has not yet mastered.
+-   **Cost Management**: Leveraging programs like LIFT is crucial for accelerating time-to-market while managing cash flow.
 
 ### Applying to Work
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+-   **Explore QuickSuite**: Investigate how QuickSight and Quick Suite Q can be integrated into current data analytics workflows to create "Analyst Agents."
+-   **Leverage Financial Incentives**: Apply for the AWS LIFT Program to secure credits for upcoming R&D projects.
+-   **Identify Use Cases**: Audit internal business operations to find repetitive, multi-step tasks that are suitable for autonomous execution by Agentic AI.
+-   **Collaborate with Partners**: Engage with solution partners like Cloud Kinetics for complex architectural needs rather than building entirely in-house.
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending the **“Discover Agentic AI”** workshop at the Bitexco Financial Tower was a highly professional and insightful experience. It provided a clear roadmap for the future of enterprise AI. Key experiences included:
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+#### Exclusive Access and Innovation
+-   Being part of the **first-ever live demonstration** of Amazon QuickSuite in Vietnam provided a sense of being at the forefront of technology.
+-   The venue at the **AWS Vietnam Office** underscored the commitment of AWS to the local market and provided a high-quality professional environment.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+#### High-Value Hands-on Learning
+-   The **90-minute workshop** session was instrumental. Unlike passive seminars, actually building concepts with **Quick Sight + Quick Suite Q** helped solidify the theoretical knowledge.
+-   Having **AWS technical experts** available for over-the-shoulder mentorship allowed for immediate troubleshooting and deeper technical discussions.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+#### Networking and Ecosystem
+-   The extended lunch break and networking sessions offered valuable time to discuss strategies with peers and industry experts.
+-   Understanding the role of the **Cloud Kinetics** partnership helped clarify how to bridge the gap between abstract platform capabilities and specific business solutions.
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+#### Lessons Learned
+-   **Agentic AI is the future of operations**: The shift from "chatting with AI" to "AI doing the work" is inevitable and transformative.
+-   **Speed is critical**: The tools are designed for rapid deployment ("QuickSuite"), suggesting that agility is the new metric for success.
+-   **Funding accelerates innovation**: The LIFT program changes the conversation from "Can we afford this?" to "How fast can we start?"
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+> Overall, the workshop successfully demystified the complex concept of Agentic AI and provided the concrete tools, funding, and expertise required to start building immediately. It was a strategic intervention that empowered attendees to transform their business operations.

@@ -1,126 +1,124 @@
 ---
 title: "Event 1"
-date: 
+date: 2025-09-18
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
+# Summary Report: “AWS Cloud Day Vietnam - AI Edition 2025”
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+&emsp;**Event Name:** Vietnam Cloud Day 2025  
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+&emsp;**Date:** September 18, 2025  
 
-### Event Objectives
+&emsp;**Location:** 2 Hai Trieu Street, Ben Nghe Ward, District 1, Ho Chi Minh City  
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+&emsp;**Role in the Event:** Participant  
 
-### Speakers
+## Event Objectives
+The **AWS Cloud Day Vietnam - AI Edition 2025** is positioned as a pivotal gathering for the Vietnamese technology and business communities. The event's primary objective is to catalyze the digital transformation of Vietnam's economy by leveraging the symbiotic power of **Cloud Computing** and **Artificial Intelligence (AI)**.
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+The overarching goals of the event can be categorized into four strategic pillars:
 
-### Key Highlights
+* **Democratizing Generative AI for Enterprise:** Moving Generative AI (GenAI) beyond hype to practical implementation. The goal is to demonstrate how businesses can transform generic AI solutions into sophisticated, context-aware programs, emphasizing a "comprehensive data strategy" as the key differentiator.
+* **Dissolving Business-IT Boundaries:** Particularly within the Financial Services sector, bridging the gap between operational business goals and IT. The objective is to showcase cloud technology as a driver of business value, enabling "Ecosystem Banking" and "Embedded Finance" models.
+* **Accelerating Industry-Specific Modernization:** Providing tailored roadmaps for diverse industries (Retail, Energy, Telco, Public Sector). Highlighting success stories like **Xanh SM**, **Honda Vietnam**, and **Masterise Group** to prove that modernization requires specific pathways, whether through migration or building cloud-native applications.
+* **Fortifying Security and Resilience:** Instilling a "security by design" mindset. The aim is to teach attendees how to integrate security best practices throughout the entire application lifecycle—from development to production.
 
-#### Identifying the drawbacks of legacy application architecture
+---
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+## Speakers
+The event features a comprehensive roster of 24 speakers, ranging from high-ranking government officials to C-level executives and technical experts.
 
-#### Transitioning to modern application architecture – Microservices
+| Speaker Name | Title | Organization |
+| :--- | :--- | :--- |
+| **H.E. Pham Duc Long** | Deputy Minister of Science and Technology | Ministry of Science and Technology |
+| **H.E. Marc E. Knapper** | U.S. Ambassador to Vietnam | U.S. Embassy in Vietnam |
+| **Jaime Valles** | VP, General Manager Asia Pacific & Japan | AWS |
+| **Jeff Johnson** | Managing Director ASEAN | AWS |
+| **Dr. Jens Lottner** | Chief Executive Officer | Techcombank |
+| **Dieter Botha** | CEO | TymeX |
+| **Trang Phung** | CEO | U2U Network |
+| **Vu Van** | Co-founder & CEO | ELSA Corp |
+| **Nguyen Hoa Binh** | Chairman | Nexttech Group |
+| **Gia Hieu Dinh** | Chief Information Officer | F88 |
+| **Nguyen Hong Phuong Huy** | Head of Cloud Infrastructure & Cyber Security | Masterise Group |
+| **Nguyen Vu Hoang** | Head of Technologies | VTV Digital |
+| **Ha Anh Van** | Head: IT Solutions Department | Honda Vietnam |
+| **Nguyen Tuan Huy** | Director of Digital Transformation | Mobifone |
+| **Minh Hoang** | Chief Data Officer | Techcom Securities |
+| **Vincent Nguyen** | Managing Director | Nam Long Commercial Property |
+| **Seunghoon Chae** | General Director | MegazoneCloud Vietnam |
+| **Uy Tran** | Co-Founder & COO | Katalon |
+| **Thai Huy Chuong** | Head of Application Development | Bao Viet Holdings |
+| **Tran Dinh Khiem** | Digital Bank Director | Techcombank |
+| **Christopher Bennett** | Chief Technology Officer | TymeX |
+| **Selma Belhadjamor** | Principal Data Scientist | Onebyzero |
+| **Ngo Manh Ha** | Co-CEO, CTO | TechX Corp |
+| **Nguyen Thanh Binh** | Head of DevOps | Renova Cloud |
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+---
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+## Key Highlights
 
-#### Domain-Driven Design (DDD)
+### The Strategic Convergence: Policy and Leadership
+* **Government Endorsement:** Opening addresses by H.E. Pham Duc Long and H.E. Marc E. Knapper signal strong bilateral support for Vietnam's digital infrastructure.
+* **Leadership Panels:** Moderated by Jeff Johnson, leaders like Vu Van (ELSA Corp) and Nguyen Hoa Binh (Nexttech Group) discussed how "People and Culture" drive cloud adoption.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+### Track 1: Financial Services (FSI) – The New Banking Paradigm
+* **Innovation in Banking & Insurance:** Techcombank and Bao Viet Holdings discussed the shift toward "Ecosystem Banking."
+* **XGenAI Implementation:** Ngo Manh Ha (TechX) presented XGenAI, demonstrating how local partners build on AWS to deliver superior customer experiences in the financial sector.
 
-#### Event-Driven Architecture
+### Track 2: Cross-Industry Modernization
+* **Migration Success Stories:** Ha Anh Van shared Honda Vietnam's blueprint for SAP migration, moving from "lifting and shifting" to enhancing business value.
+* **Digital Media & Telco:** VTV Digital and Mobifone shared their "From Vision to Value" digital transformation journeys.
+* **Operational Excellence:** MegazoneCloud emphasized using AI to streamline processes and optimize costs post-migration.
+* **Business Agility:** Masterise Group presented their strategy of migrating hundreds of VMware workloads to AWS.
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+### Track 3 & 4: Data, AI, and DevOps
+* **Data Strategy:** Experts from Onebyzero and Techcom Securities underscored that "data serves as the critical differentiator" for Generative AI.
+* **DevOps Revolution:** Katalon and Renova Cloud explored integrating GenAI into the DevOps lifecycle to automate testing and code generation.
 
-#### Compute Evolution
+---
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+## Key Takeaways
 
-#### Amazon Q Developer
+### Design Mindset
+* **Business-Led Technology:** Shift mindset from IT-centric to business-centric (e.g., F88 improving financial access, Nam Long optimizing property management).
+* **Resilience as a Standard:** Continuous resilience requires deliberate design utilizing cloud-native technologies.
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+### Technical Architecture
+* **The Data-AI Dependency:** Generative AI cannot function without a Data Strategy. Output quality is proportional to data input quality.
+* **Hybrid Pathways:**
+    * Refactoring to microservices/serverless (e.g., TymeX).
+    * Replatforming (e.g., Masterise Group moving VMware to AWS).
 
-### Key Takeaways
-
-#### Design Mindset
-
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
-
-#### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+### Modernization Strategy
+* **Beyond Migration:** The strategy is "Migrate to Operate"—focusing on continuous innovation after the move.
+* **Ecosystem Integration:** For FSI, the strategy is Open Banking (exposing services via APIs).
 
 ### Applying to Work
+1.  **Audit Data Readiness:** Conduct a data audit to ensure a "comprehensive data strategy" before initiating GenAI projects.
+2.  **Pilot GenAI in DevOps:** Experiment with automated code generation and testing to measure delivery velocity.
+3.  **Review Legacy Workloads:** Analyze Honda Vietnam and Masterise Group sessions to align SAP/VMware roadmaps with best practices.
+4.  **Implement "Security at Scale":** Integrate security tools throughout the application lifecycle.
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+---
 
-### Event Experience
+## Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending the **AWS Cloud Day Vietnam - AI Edition 2025** offered a comprehensive immersion into the future of Vietnam's digital economy. The event was a strategic forum linking national policy, business transformation, and technical implementation.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+* **Learning from skilled speakers:** A balanced view of strategy versus execution was provided by speakers like Dr. Jens Lottner (Techcombank) and technical experts from TechX and Masterise.
+* **Hands-on technical exposure:** Deep technical insights were gained, particularly regarding "Generative AI into the DevOps Lifecycle," showing the shift from manual coding to AI-assisted development.
+* **Networking and discussions:** The event fostered dialogue between government officials, banking executives, and technical architects, highlighting that transformation involves culture as much as code.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+### Lessons Learned
+* **Data is the critical differentiator:** Without high-quality data, GenAI is just a novelty.
+ * **Modernization is continuous:** It requires a shift to "smarter operations."
+ * **Security is everyone's job:** It must be integrated from the first line of code.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+---
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+**Conclusion:**
+Overall, the event effectively demonstrated that the convergence of AWS cloud infrastructure and Generative AI is the primary engine for Vietnam's next phase of economic growth, offering a clear, actionable roadmap for organizations ready to modernize.

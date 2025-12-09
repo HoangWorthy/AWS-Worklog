@@ -1,42 +1,52 @@
 ---
 title: "Events Participated"
-date: 
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
 ---
 
-
-
-> In this section, you should list and describe in detail the events you have participated in during your internship or work experience.  
-> 
-> Each event should be presented in the format Event 1, Event 2, Event 3…, along with the following details:
-> * Event name
-> * Date and time
-> * Location (if applicable)
-> * Your role in the event (attendee, event support, speaker, etc.)
-> * A brief description of the event’s content and main activities
-> * Outcomes or value gained (lessons learned, new skills, contribution to the team/project)
-> * This listing helps demonstrate your actual participation as well as the soft skills and experience you have gained from each event.
-
-During my internship, I participated in two events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
-
 ### [Event 1](4.1-Event1/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+**Event Name:** AWS Cloud Day Vietnam - AI Edition 2025  
+**Date:** September 18, 2025  
+**Location:** 2 Hai Trieu Street, Ben Nghe Ward, District 1, Ho Chi Minh City  
+**Role in the Event:** Participant  
 
-&emsp;**Date & Time:** 09:00, August 13, 2025  
+#### **Event Overview and Key Activities**  
+The AWS Cloud Day Vietnam - AI Edition 2025 served as a pivotal forum designed to accelerate Vietnam's digital transformation, harnessing the power of Cloud Computing and Artificial Intelligence. The event explored four core themes:  
+- Democratizing Generative AI for Enterprises
+- Bridging the Gap Between Business and IT in Finance  
+- Accelerating Industry Modernization  
+- Enhancing Security Frameworks
 
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+The day’s activities featured high-level plenary sessions with government officials and industry leaders, followed by in-depth technical tracks focused on *Data Strategy*, *DevOps*, and *Cloud Migration Pathways*.
 
-&emsp;**Role:** Attendee  
+#### **Key Takeaways and Outcomes**  
+- **Strategic Insights**: Gained a deeper understanding of the critical interplay between Generative AI and a robust data strategy, identified as the key driver for success in modern enterprises.  
+- **Migration to Operate Mindset**: Developed an appreciation for the *"Migrate to Operate"* framework, which emphasizes using AI to streamline operations and optimize costs post-cloud migration.  
+- **Technical Knowledge**: Acquired insights into the integration of Generative AI within the DevOps lifecycle, particularly in automating code generation and testing.  
+- **Security Innovations**: Learned about the *"Security by Design"* approach, which focuses on embedding security measures throughout the application lifecycle rather than relying solely on perimeter defenses.
+
+This event provided invaluable knowledge and practical takeaways, further enhancing my understanding of the intersection between AI, cloud computing, and security in the context of modern enterprise solutions.
 
 ---
 
-### [Event 2](4.2-Event2/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+### [Event 2](4.2-Event2/) 
+**Event Name:** Discover Agentic AI – Amazon QuickSuite Workshop  
+**Date:** November 7, 2025  
+**Location:** AWS Vietnam Office, Bitexco Financial Tower, District 1, Ho Chi Minh City  
+**Role in the Event:** Participant  
 
-&emsp;**Date & Time:** 09:00, August 13, 2025  
+#### **Event Overview and Key Activities** The "Discover Agentic AI – Amazon QuickSuite Workshop," organized in collaboration with Cloud Kinetics, served as a strategic technical session marking the evolution from passive Generative AI to autonomous **Agentic AI**. The event featured the **first-ever live demonstration** of Amazon QuickSuite in Vietnam. The workshop focused on four key pillars:  
+- Defining the "Agentic" paradigm: Autonomy, Reasoning, and Execution.
+- Integrating Data and AI through the Amazon QuickSuite ecosystem.
+- Hands-on building of AI concepts with AWS technical experts.
+- Financial enablement for innovation through the AWS LIFT Program.
 
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+The agenda combined theoretical architectural sessions with practical, hands-on workshops using *Amazon QuickSight* and *Quick Suite Q*, allowing participants to build functional AI concepts in real-time.
 
-&emsp;**Role:** Attendee  
+#### **Key Takeaways and Outcomes** - **Paradigm Shift**: Gained a clear understanding of the transition from Generative AI (content creation) to **Agentic AI** (autonomous task execution), where systems can perceive environments and act independently to solve business problems.  
+- **Unified Ecosystem**: Acquired practical insights into **Amazon QuickSuite**, learning how to integrate business intelligence (QuickSight) with generative capabilities to create "Analyst Agents" that streamline operations.  
+- **Operational Agility**: Recognized the strategic value of the "Quick" framework, which emphasizes rapid deployment and "Time-to-Value," allowing enterprises to implement complex AI solutions with speed.  
+- **Strategic Enablement**: Learned about the **AWS LIFT Program** (offering up to $80,000 USD in credit), identifying it as a critical mechanism to de-risk R&D and accelerate the adoption of high-performance computing.
+
+This workshop provided a concrete roadmap for building autonomous enterprise systems, combining theoretical knowledge with hands-on technical skills and strategic financial insights to accelerate digital transformation.

@@ -44,7 +44,252 @@ The IELTS Self-Learning Web System provides a unified platform with five core fe
 The platform employs a modern full-stack web architecture designed for scalability, real-time collaboration, and AI integration. The system consists of five major modules working together to provide a comprehensive IELTS learning experience. The infrastructure uses an **active-passive Multi-AZ** deployment on AWS ECS for high availability, where AZ-1 handles all active traffic and AZ-2 serves as a standby for automatic failover.
 
 **System Architecture Overview:**
-![System Architecture](/images/AWS-Bandup-Architecture.png)
+![System Architecture](/images/2-Proposal/AWS-Bandup-Architecture.png)
+
+#### 3.1. Architecture Overview
+The IELTS Self-Learning Web System is built on AWS cloud infrastructure with a multi-layered architecture that ensures high availability, scalability, and security. The system follows a microservices-inspired approach with a monolithic backend for core services and serverless architecture for AI-powered features.
+
+**Key Architecture Principles:**
+- **High Availability**: Active-passive Multi-AZ deployment with automatic failover
+- **Scalability**: Horizontal scaling with ECS Auto Scaling and serverless Lambda functions
+- **Security**: Multi-layer security with WAF, VPC isolation, and encryption at rest and in transit
+- **Performance**: CDN distribution, caching layers, and optimized database queries
+- **Cost Efficiency**: Serverless AI services, active-passive standby resources, and pay-per-use pricing
+
+#### 3.2. Network Architecture
+The network infrastructure is built within a **Virtual Private Cloud (VPC)** spanning two Availability Zones (AZ-1 and AZ-2) for redundancy and high availability.
+
+**VPC Structure:**
+- **Public Subnets (AZ-1 & AZ-2)**: 
+  - Application Load Balancer (ALB) endpoints
+  - NAT Gateways for outbound internet access
+  - Bastion hosts for secure access (optional)
+- **Private Subnets (AZ-1 & AZ-2)**:
+  - ECS Fargate tasks (Next.js frontend and Spring Boot backend)
+  - Amazon RDS PostgreSQL instances
+  - Amazon ElastiCache Redis clusters
+  - Internal service communication
+
+**Network Components:**
+- **Route 53**: DNS management and domain routing
+- **AWS Certificate Manager (ACM)**: SSL/TLS certificates for HTTPS
+- **AWS WAF**: Web Application Firewall protecting against common web exploits
+- **Internet Gateway**: Public internet access for public subnets
+- **NAT Gateways**: Outbound internet access for private subnets
+- **Security Groups**: Stateful firewall rules controlling traffic between components
+- **Network ACLs**: Additional layer of subnet-level security
+
+**Traffic Flow:**
+1. User requests → Route 53 → CloudFront CDN (for static assets)
+2. API requests → Route 53 → AWS WAF → Application Load Balancer
+3. ALB routes to ECS tasks in private subnets (AZ-1 active, AZ-2 standby)
+4. ECS tasks communicate with RDS, ElastiCache, and S3 via private subnets
+5. AI service requests → API Gateway → SQS → Lambda functions
+
+#### 3.3. Application Architecture
+The application layer consists of frontend and backend services deployed on **Amazon ECS (Fargate)** with an active-passive Multi-AZ configuration.
+
+**Frontend Layer (Next.js):**
+- **Deployment**: Containerized Next.js application on ECS Fargate
+- **Location**: Private subnets in AZ-1 (active) and AZ-2 (standby)
+- **Features**:
+  - Server-side rendering (SSR) for SEO optimization
+  - Static asset delivery via CloudFront CDN
+  - Real-time WebRTC for study room video/voice calls
+  - Socket.io client for real-time messaging
+  - Responsive design for mobile and desktop
+
+**Backend Layer (Spring Boot):**
+- **Deployment**: Monolithic Spring Boot REST API on ECS Fargate
+- **Location**: Private subnets in AZ-1 (active) and AZ-2 (standby)
+- **Components**:
+  - RESTful API endpoints for all modules
+  - Spring Security for authentication and authorization
+  - Spring WebSocket for real-time features
+  - JWT token management
+  - OAuth 2.0 integration (Google, Facebook)
+  - File upload handling for S3 integration
+
+**Load Balancing & High Availability:**
+- **Application Load Balancer (ALB)**:
+  - Routes traffic to healthy ECS tasks in AZ-1 (active)
+  - Health checks every 30 seconds
+  - Automatic failover to AZ-2 if AZ-1 becomes unavailable
+  - SSL/TLS termination with ACM certificates
+  - Sticky sessions for WebSocket connections
+
+**Container Orchestration:**
+- **Amazon ECS (Fargate)**:
+  - No server management required
+  - Auto Scaling based on CPU/memory utilization
+  - Task definitions for Next.js and Spring Boot containers
+  - Service discovery and load balancing integration
+  - Container images stored in Amazon ECR
+
+#### 3.4. Data Architecture
+The data layer uses a combination of relational and NoSQL databases, along with caching for optimal performance.
+
+**Primary Database:**
+- **Amazon RDS PostgreSQL (Multi-AZ)**:
+  - **Primary Instance**: db.t3.medium in AZ-1 (active)
+  - **Standby Instance**: db.t3.medium in AZ-2 (passive, synchronous replication)
+  - **Data**: Users, blogs, study sessions, practice tests, flashcards metadata
+  - **Backup**: Automated daily backups with 7-day retention
+  - **High Availability**: Automatic failover to standby in < 60 seconds
+  - **Encryption**: At rest (AES-256) and in transit (SSL/TLS)
+
+**Caching Layer:**
+- **Amazon ElastiCache (Redis)**:
+  - Session management and user authentication tokens
+  - Frequently accessed data caching (blog posts, user profiles)
+  - Real-time leaderboards and statistics
+  - Rate limiting and API throttling
+  - Cache invalidation strategies for data consistency
+
+**Object Storage:**
+- **Amazon S3**:
+  - User-uploaded files (images, documents, audio recordings)
+  - Static assets (before CloudFront distribution)
+  - Backup storage for RDS snapshots
+  - Lifecycle policies for cost optimization (move to Glacier after 90 days)
+  - Versioning enabled for critical files
+
+**NoSQL Database (AI Services):**
+- **Amazon DynamoDB**:
+  - AI assessment results (Writing and Speaking scores)
+  - Generated flashcards from RAG pipeline
+  - User progress tracking for AI features
+  - On-demand scaling for variable workloads
+  - Point-in-time recovery enabled
+
+**Vector Store (RAG):**
+- **Amazon OpenSearch Service** (or **Amazon Bedrock Knowledge Base**):
+  - Document embeddings generated by Amazon Titan V2
+  - Semantic search for relevant document chunks
+  - Vector similarity search for flashcard generation
+  - Index management and query optimization
+
+#### 3.5. Security Architecture
+Multi-layer security ensures data protection and system integrity at every level.
+
+**Network Security:**
+- **AWS WAF**: Protection against SQL injection, XSS, DDoS attacks
+- **Security Groups**: Restrictive firewall rules (least privilege principle)
+- **Network ACLs**: Subnet-level traffic filtering
+- **VPC Isolation**: Private subnets with no direct internet access
+- **VPN/Bastion Hosts**: Secure administrative access (optional)
+
+**Data Security:**
+- **Encryption at Rest**:
+  - RDS: AES-256 encryption
+  - S3: Server-side encryption (SSE-S3)
+  - DynamoDB: Encryption at rest enabled
+  - ElastiCache: Encryption in transit and at rest
+- **Encryption in Transit**:
+  - HTTPS/TLS 1.2+ for all external communications
+  - SSL/TLS for database connections
+  - ACM certificates for all domains
+
+**Identity & Access Management:**
+- **AWS IAM**: Role-based access control for AWS services
+  - ECS tasks use IAM roles (no hardcoded credentials)
+  - Lambda functions have minimal required permissions
+  - S3 bucket policies for access control
+- **Spring Security**: Application-level authentication
+  - JWT tokens for stateless authentication
+  - OAuth 2.0 for social login (Google, Facebook)
+  - Role-based access control (Guest, Member, Premium, Admin)
+- **AWS Secrets Manager**: Secure storage of API keys and credentials
+  - Database passwords
+  - Third-party API keys (Gemini, dictionary APIs)
+  - OAuth client secrets
+
+**Application Security:**
+- **Input Validation**: All user inputs validated and sanitized
+- **SQL Injection Prevention**: Parameterized queries with Spring Data JPA
+- **XSS Protection**: Content Security Policy (CSP) headers
+- **CSRF Protection**: Spring Security CSRF tokens
+- **Rate Limiting**: API throttling with Redis
+- **Audit Logging**: CloudWatch Logs for security events
+
+#### 3.6. CI/CD Pipeline
+Automated deployment pipeline ensures consistent and reliable releases.
+
+**Source Control:**
+- **Git Repository**: Code versioning and collaboration
+- **Branch Strategy**: Main branch for production, feature branches for development
+
+**CI/CD Components:**
+- **GitLab Webhook** (or **GitHub Actions**): Triggers pipeline on code push
+- **AWS CodePipeline**: Orchestrates the deployment workflow
+- **AWS CodeBuild**: Builds and tests application code
+  - Frontend: `npm install && npm run build`
+  - Backend: `mvn clean package`
+  - Docker image creation and tagging
+- **Amazon ECR**: Container registry for Docker images
+  - Stores Next.js and Spring Boot container images
+  - Image versioning and lifecycle policies
+
+**Deployment Flow:**
+1. Developer pushes code to repository
+2. Webhook triggers CodePipeline
+3. CodeBuild compiles and tests code
+4. CodeBuild creates Docker images and pushes to ECR
+5. ECS service updates with new task definitions
+6. Rolling deployment: New tasks start, health checks pass, old tasks terminate
+7. CloudWatch monitors deployment success/failure
+
+**Infrastructure as Code:**
+- **AWS CloudFormation** (or **Terraform**): Infrastructure provisioning
+  - VPC, subnets, security groups
+  - ECS clusters, services, task definitions
+  - RDS instances, ElastiCache clusters
+  - Lambda functions, API Gateway, SQS queues
+  - IAM roles and policies
+
+#### 3.7. Monitoring & Observability
+Comprehensive monitoring ensures system health and performance.
+
+**Application Monitoring:**
+- **Amazon CloudWatch**:
+  - **Metrics**: CPU, memory, network utilization for ECS tasks
+  - **Logs**: Application logs from Next.js and Spring Boot
+  - **Alarms**: Automated alerts for errors, high latency, resource exhaustion
+  - **Dashboards**: Custom dashboards for key metrics
+- **AWS X-Ray** (optional): Distributed tracing for request flow analysis
+
+**Infrastructure Monitoring:**
+- **CloudWatch Metrics**:
+  - RDS: CPU, memory, connection count, read/write latency
+  - ElastiCache: CPU, memory, cache hit ratio
+  - ALB: Request count, response time, error rates
+  - Lambda: Invocations, duration, errors, throttles
+  - SQS: Queue depth, message age, DLQ size
+  - API Gateway: Request count, latency, 4xx/5xx errors
+
+**Logging:**
+- **CloudWatch Logs**:
+  - Application logs (structured JSON format)
+  - Access logs from ALB
+  - API Gateway execution logs
+  - Lambda function logs
+  - Log retention: 30 days (configurable)
+
+**Alerting:**
+- **CloudWatch Alarms**:
+  - High error rate (> 5% 5xx errors)
+  - High latency (> 2 seconds p95)
+  - Low availability (< 99% uptime)
+  - Resource exhaustion (CPU > 80%, Memory > 85%)
+  - Database connection pool exhaustion
+  - SQS queue depth exceeding threshold
+- **SNS Notifications**: Email/SMS alerts for critical alarms
+
+**Performance Optimization:**
+- **CloudFront CDN**: Caching static assets at edge locations
+- **ElastiCache**: Reducing database load with intelligent caching
+- **Database Query Optimization**: Indexed queries, connection pooling
+- **Auto Scaling**: ECS tasks scale based on CPU/memory metrics
 
 ### Technology Stack
 **Frontend:**
@@ -73,13 +318,22 @@ The platform employs a modern full-stack web architecture designed for scalabili
 - **Amazon S3**: Media and file storage
 - **Amazon CloudFront**: CDN for static assets
 - **Amazon CloudWatch**: Monitoring and logging
+- **Amazon API Gateway**: RESTful API endpoint for AI service requests
+- **Amazon SQS**: Message queue for asynchronous AI processing with Dead Letter Queue (DLQ)
+- **AWS Lambda**: Serverless functions for AI-powered assessments and flashcard generation
+- **Amazon DynamoDB**: NoSQL database for storing AI assessment results and generated flashcards
+- **Amazon Bedrock**: AI model service for embeddings (Titan V2) and content generation
+- **Amazon OpenSearch Service** (optional): Vector store for RAG-based document embeddings and semantic search
 
 **Third-party Services:**
-- **Google Gemini Flash API (Free Tier)**: AI-powered Speaking/Writing assessment and content generation
+- **Google Gemini Flash API (Free Tier)**: AI-powered Speaking/Writing assessment and smart query generation for RAG
+- **Amazon Bedrock (GPT-OSS)**: Alternative AI model for assessments and content generation
+- **Amazon Titan V2 Embeddings**: Vector embeddings for document chunks in RAG-based flashcard generation
 - **Free Dictionary APIs**: Word definitions and examples
 - **Open-source translation libraries**: Context-aware translation (alternative to paid APIs)
 
-### Component Design
+#### 3.9. Component Design
+The system consists of five major functional modules, each integrated with the core architecture described above. Each module leverages the shared infrastructure (ECS, RDS, ElastiCache, S3) while maintaining clear separation of concerns.
 
 **1. User Management Module:**
 - Multi-tier authentication system (Guest, Member, Premium, Admin)
@@ -109,24 +363,261 @@ The platform employs a modern full-stack web architecture designed for scalabili
 - Real-time participant management
 
 **4. IELTS Practice Test Module:**
-- Test bank management (Reading, Listening, Speaking, Writing)
+- Test bank management (Reading, Listening, Speaking, Writing) - stored in PostgreSQL
 - Timed test simulations with auto-submission
 - Automatic vocabulary extraction from Reading passages to flashcards
-- AI-powered Speaking assessment using Gemini Flash (pronunciation, fluency, coherence)
-- AI-powered Writing assessment using Gemini Flash (grammar, vocabulary, task achievement)
+- **AI-powered Speaking assessment** (see Section 3.8, Lambda Function 2):
+  - Audio recordings uploaded to S3
+  - Processed asynchronously via API Gateway → SQS → Lambda Function 2
+  - Uses Amazon Transcribe for speech-to-text
+  - Evaluates pronunciation, fluency, coherence, lexical resource
+  - Results stored in DynamoDB and displayed to user
+- **AI-powered Writing assessment** (see Section 3.8, Lambda Function 1):
+  - Writing samples submitted via API Gateway → SQS → Lambda Function 1
+  - Evaluates grammar, vocabulary, task achievement, coherence
+  - Results stored in DynamoDB with detailed feedback
 - Dictation exercises for Listening practice
-- Detailed score reports and analytics
-- Progress tracking across test types
+- Detailed score reports and analytics (aggregated from DynamoDB)
+- Progress tracking across test types (stored in PostgreSQL, cached in Redis)
 
 **5. Quizlet Flashcard Module:**
-- CRUD operations for flashcard sets
+- CRUD operations for flashcard sets (stored in PostgreSQL)
 - Multiple study modes (flashcards, learn, test, match, write)
-- Spaced repetition algorithm (SRS)
+- Spaced repetition algorithm (SRS) for optimized learning
 - Automatic vocabulary extraction from text passages
-- AI-generated quizzes from uploaded documents/texts using Gemini Flash
+- **AI-generated flashcards** from uploaded documents using RAG (see Section 3.8)
+  - Documents uploaded to S3
+  - Processed asynchronously via API Gateway → SQS → Lambda Function 3
+  - Generated flashcards stored in DynamoDB and linked to user's sets
 - Collaborative flashcard sets with sharing
-- Study statistics and mastery tracking
+- Study statistics and mastery tracking (cached in Redis)
 - Import/export functionality
+
+#### 3.8. AI Service Architecture (Serverless)
+The AI service is implemented as a fully serverless architecture using AWS services to handle AI-powered assessments and content generation. This architecture follows an asynchronous processing pattern for scalability, cost-efficiency, and reliability.
+
+**Architecture Components:**
+
+**1. API Gateway (Entry Point)**
+- **Purpose**: RESTful API endpoint for AI service requests
+- **Configuration**:
+  - REST API with custom domain (optional)
+  - API keys for rate limiting and access control
+  - CORS configuration for frontend integration
+  - Request/response transformation
+  - Integration with SQS for asynchronous processing
+- **Endpoints**:
+  - `POST /ai/writing-assessment` - Submit writing samples
+  - `POST /ai/speaking-assessment` - Submit audio recordings
+  - `POST /ai/generate-flashcards` - Upload documents for flashcard generation
+- **Security**: IAM authentication or API keys
+
+**2. Amazon SQS (Message Queue)**
+- **Purpose**: Decouples API Gateway from Lambda functions for asynchronous processing
+- **Configuration**:
+  - Standard queue for high throughput
+  - Message retention: 14 days
+  - Visibility timeout: 5 minutes (adjustable per function)
+  - Dead Letter Queue (DLQ) for failed messages after 3 retries
+- **Message Format**: JSON payloads containing:
+  - User ID and request metadata
+  - File references (S3 URIs for documents/audio)
+  - Processing parameters
+- **Benefits**:
+  - Handles traffic spikes without overwhelming Lambda
+  - Automatic retry mechanism for transient failures
+  - Cost-effective message queuing
+
+**3. AWS Lambda Functions (Processing Layer)**
+Three specialized Lambda functions process different types of AI tasks, each optimized for its specific workload:
+
+**Lambda Function 1: Writing Assessment**
+- **Trigger**: SQS queue messages for writing assessments
+- **Runtime**: Python 3.11 or Node.js 18.x
+- **Memory**: 512 MB - 1 GB (configurable)
+- **Timeout**: 5 minutes
+- **Processing Flow**:
+  1. Receives writing sample from SQS message
+  2. Retrieves document from S3 if needed
+  3. Calls **Amazon Bedrock (GPT-OSS)** or **Google Gemini Flash API** with prompt:
+     - Task description and IELTS band descriptors
+     - Writing sample text
+     - Evaluation criteria (grammar, vocabulary, task achievement, coherence)
+  4. Parses AI response for structured assessment:
+     - Overall band score (0-9)
+     - Detailed scores per criterion
+     - Feedback comments and suggestions
+  5. Stores results in **DynamoDB** with:
+     - User ID, timestamp, writing sample reference
+     - Assessment scores and feedback
+     - Processing metadata
+  6. Sends notification (optional) via SNS or updates user via WebSocket
+
+**Lambda Function 2: Speaking Assessment**
+- **Trigger**: SQS queue messages for speaking assessments
+- **Runtime**: Python 3.11 or Node.js 18.x
+- **Memory**: 1 GB - 2 GB (for audio processing)
+- **Timeout**: 15 minutes (for longer audio files)
+- **Processing Flow**:
+  1. Receives audio file reference from SQS message
+  2. Retrieves audio file from S3
+  3. **Audio Transcription** (if needed):
+     - Uses **Amazon Transcribe** for speech-to-text conversion
+     - Supports multiple languages and accents
+     - Generates transcript with timestamps
+  4. Calls **Amazon Bedrock (GPT-OSS)** or **Google Gemini Flash API** with:
+     - Transcript text
+     - Audio metadata (duration, sample rate)
+     - IELTS speaking band descriptors
+     - Evaluation criteria (pronunciation, fluency, coherence, lexical resource)
+  5. Parses AI response for structured assessment:
+     - Overall band score (0-9)
+     - Detailed scores per criterion
+     - Pronunciation analysis
+     - Fluency and coherence feedback
+  6. Stores results in **DynamoDB** with:
+     - User ID, timestamp, audio file reference
+     - Transcript and assessment scores
+     - Detailed feedback
+  7. Sends notification or updates user status
+
+**Lambda Function 3: Flashcard Generation (RAG-based)**
+- **Trigger**: SQS queue messages for document uploads
+- **Runtime**: Python 3.11 (for ML/AI libraries)
+- **Memory**: 2 GB - 3 GB (for document processing)
+- **Timeout**: 15 minutes (for large documents)
+- **Processing Flow**:
+
+  **Step 1: Document Processing & Embedding**
+  - Receives document file reference from SQS
+  - Retrieves document from S3 (PDF, DOCX, TXT formats)
+  - **Document Chunking**:
+    - Splits document into semantic chunks (500-1000 tokens each)
+    - Preserves context and structure
+    - Handles tables, lists, and formatted content
+  - **Vector Embedding Generation**:
+    - Uses **Amazon Titan V2 Embeddings** model via Bedrock
+    - Generates 1024-dimensional vectors for each chunk
+    - Maintains chunk metadata (position, section, page number)
+  - **Vector Storage**:
+    - Stores embeddings in **Amazon OpenSearch Service** (vector index)
+    - Alternative: **Amazon Bedrock Knowledge Base** (managed service)
+    - Index structure: Document ID, chunk ID, embedding vector, metadata
+
+  **Step 2: Smart Query Generation**
+  - Uses **Google Gemini Flash API** to analyze document content
+  - **Query Generation Process**:
+    - Analyzes document structure and content
+    - Identifies key concepts, important facts, learning points
+    - Generates 10-20 intelligent, context-aware queries
+    - Queries designed to extract:
+      - Definitions and explanations
+      - Important dates, facts, and figures
+      - Concepts and relationships
+      - Examples and use cases
+  - **Query Optimization**:
+    - Ensures queries are specific and answerable
+    - Covers different difficulty levels
+    - Balances factual and conceptual questions
+
+  **Step 3: RAG-based Flashcard Generation**
+  - **Retrieval Phase**:
+    - For each generated query, performs semantic search in vector store
+    - Retrieves top 3-5 most relevant document chunks
+    - Uses cosine similarity for vector matching
+  - **Augmentation Phase**:
+    - Combines query with retrieved chunks
+    - Adds context and metadata
+    - Formats prompt for flashcard generation
+  - **Generation Phase**:
+    - Sends query-context pairs to **Google Gemini Flash** or **Amazon Bedrock**
+    - Prompt includes:
+      - Query/question to answer
+      - Relevant document chunks
+      - Flashcard format requirements (question-answer pairs)
+      - Educational guidelines
+    - Model generates flashcards that are:
+      - Relevant to document content
+      - Contextually accurate
+      - Educationally valuable
+      - Properly formatted (question-answer pairs)
+      - Appropriate difficulty level
+  - **Post-processing**:
+    - Validates flashcard quality
+    - Removes duplicates
+    - Formats for storage
+  - **Storage**:
+    - Stores generated flashcards in **DynamoDB**
+    - Associates with user's flashcard sets
+    - Links to original document
+    - Stores metadata (generation date, source chunks)
+
+**4. Amazon DynamoDB (Data Storage)**
+- **Purpose**: Stores AI assessment results and generated flashcards
+- **Table Design**:
+  - **WritingAssessments Table**:
+    - Partition Key: `userId` (String)
+    - Sort Key: `timestamp` (Number)
+    - Attributes: writingSample, scores, feedback, metadata
+  - **SpeakingAssessments Table**:
+    - Partition Key: `userId` (String)
+    - Sort Key: `timestamp` (Number)
+    - Attributes: audioFile, transcript, scores, feedback, metadata
+  - **GeneratedFlashcards Table**:
+    - Partition Key: `userId` (String)
+    - Sort Key: `flashcardId` (String)
+    - Attributes: question, answer, sourceDocument, sourceChunks, metadata
+- **Features**:
+  - On-demand scaling for variable workloads
+  - Point-in-time recovery enabled
+  - Encryption at rest
+  - TTL for automatic cleanup of old data
+
+**5. Amazon Bedrock (AI Model Service)**
+- **Models Used**:
+  - **Amazon Titan V2 Embeddings**: Vector embeddings for document chunks
+  - **GPT-OSS (Open Source)**: Alternative model for assessments and generation
+- **Integration**: Direct API calls from Lambda functions
+- **Cost**: Pay-per-use pricing model
+
+**6. Amazon OpenSearch Service (Vector Store)**
+- **Purpose**: Semantic search and retrieval for RAG pipeline
+- **Configuration**:
+  - Vector index for document embeddings
+  - KNN (k-nearest neighbors) search capability
+  - Index management and optimization
+- **Alternative**: Amazon Bedrock Knowledge Base (fully managed)
+
+**7. Amazon CloudWatch (Monitoring)**
+- **Lambda Metrics**:
+  - Invocations, duration, errors, throttles
+  - Memory utilization, concurrent executions
+- **SQS Metrics**:
+  - Queue depth, message age
+  - DLQ message count
+- **API Gateway Metrics**:
+  - Request count, latency, 4xx/5xx errors
+- **Alarms**: Automated alerts for:
+  - High error rates
+  - Queue depth exceeding threshold
+  - Lambda timeouts
+  - API Gateway throttling
+
+**Data Flow Summary:**
+1. User submits request → **API Gateway** (validates and queues)
+2. Request queued in **SQS** (decoupled processing)
+3. **Lambda function** triggered by SQS message
+4. Lambda processes request using **AI services** (Bedrock/Gemini)
+5. Results stored in **DynamoDB**
+6. User notified or results retrieved via API
+7. **CloudWatch** monitors entire flow
+
+**Benefits of Serverless Architecture:**
+- **Scalability**: Auto-scales with request volume
+- **Cost Efficiency**: Pay only for actual usage
+- **Reliability**: Built-in retry mechanisms and DLQ
+- **Maintenance**: No server management required
+- **Performance**: Low latency with optimized cold starts
 
 ### 4. Technical Implementation
 **Implementation Phases**
@@ -161,15 +652,33 @@ The platform employs a modern full-stack web architecture designed for scalabili
 - ElastiCache Redis for session management and caching
 
 **Phase 4: AI Integration & Deploying (Weeks 11-12)**
-- Google Gemini Flash API integration for Speaking assessment
-- Google Gemini Flash API integration for Writing assessment
+- **AI Service Infrastructure Setup:**
+  - Amazon API Gateway configuration for AI endpoints
+  - Amazon SQS queue setup with Dead Letter Queue (DLQ)
+  - AWS Lambda function development (3 functions)
+  - Amazon DynamoDB table design for AI results storage
+- **Lambda Function 1: Writing Assessment**
+  - Integration with Google Gemini Flash API or Amazon Bedrock
+  - Writing evaluation logic (grammar, vocabulary, task achievement, coherence)
+  - Result storage in DynamoDB
+- **Lambda Function 2: Speaking Assessment**
+  - Audio transcription integration
+  - Integration with Google Gemini Flash API or Amazon Bedrock
+  - Speaking evaluation logic (pronunciation, fluency, coherence, lexical resource)
+  - Result storage in DynamoDB
+- **Lambda Function 3: RAG-based Flashcard Generation**
+  - Document chunking algorithm implementation
+  - Amazon Titan V2 Embeddings integration for vector generation
+  - Vector store setup (Amazon OpenSearch Service or Bedrock Knowledge Base)
+  - Google Gemini integration for smart query generation
+  - RAG pipeline: Query generation → Document retrieval → Flashcard generation
+  - Flashcard storage in DynamoDB
 - Automatic vocabulary extraction algorithms
-- AI quiz generation from uploaded content
 - Comprehensive testing (unit, integration, end-to-end)
 - Performance optimization and load testing
 - Security audit and bug fixes
 - Production deployment to AWS ECS with Multi-AZ
-- Monitoring setup with CloudWatch
+- Monitoring setup with CloudWatch for Lambda, SQS, and API Gateway
 
 **Technical Requirements**
 
@@ -207,9 +716,28 @@ The platform employs a modern full-stack web architecture designed for scalabili
 - **Amazon CloudWatch**: Logging and monitoring
 - **Amazon VPC**: Network isolation with public/private subnets across 2 AZs
 - **AWS Certificate Manager**: SSL/TLS certificates
+- **Amazon API Gateway**: RESTful API for AI service endpoints
+- **Amazon SQS**: Message queue for asynchronous AI processing with DLQ
+- **AWS Lambda**: Serverless compute for AI functions (3 functions: Writing, Speaking, Flashcard Generation)
+- **Amazon DynamoDB**: NoSQL database for AI assessment results and flashcards
+- **Amazon Bedrock**: AI model service (Titan V2 Embeddings, GPT-OSS)
+- **Amazon OpenSearch Service** (optional): Vector store for RAG document embeddings
 
 **AI/ML Integration:**
-- Google Gemini Flash API (Free Tier) for Speaking/Writing assessment
+- **Google Gemini Flash API (Free Tier)**: 
+  - Writing assessment (grammar, vocabulary, task achievement)
+  - Speaking assessment (pronunciation, fluency, coherence)
+  - Smart query generation for RAG-based flashcard creation
+- **Amazon Bedrock (GPT-OSS)**: 
+  - Alternative AI model for assessments
+  - Flashcard generation from query-context pairs
+- **Amazon Titan V2 Embeddings**: 
+  - Vector embeddings for document chunks
+  - Semantic search and retrieval for RAG
+- **RAG (Retrieval-Augmented Generation) Architecture**:
+  - Document chunking and embedding generation
+  - Vector store for semantic search (OpenSearch Service or Bedrock Knowledge Base)
+  - Context-aware flashcard generation using smart queries + document chunks
 
 ### 5. Timeline & Milestones
 
@@ -245,16 +773,22 @@ The platform employs a modern full-stack web architecture designed for scalabili
 - Deliverable: All five core features operational (without AI)
 
 **Weeks 11-12: AI Integration & Deployment**
-- ✓ Google Gemini Flash API (Free Tier) integration for Writing assessment
-- ✓ Google Gemini Flash API (Free Tier) integration for Speaking assessment
+- ✓ Amazon API Gateway and SQS setup for AI service architecture
+- ✓ AWS Lambda Function 1: Writing Assessment with Gemini/Bedrock integration
+- ✓ AWS Lambda Function 2: Speaking Assessment with Gemini/Bedrock integration
+- ✓ AWS Lambda Function 3: RAG-based Flashcard Generation
+  - Document chunking and Amazon Titan V2 Embeddings integration
+  - Google Gemini smart query generation
+  - RAG pipeline with vector retrieval and flashcard generation
+- ✓ Amazon DynamoDB setup for AI results storage
+- ✓ Amazon OpenSearch Service or Bedrock Knowledge Base for vector store
 - ✓ Vocabulary extraction algorithms
-- ✓ AI quiz generation functionality
 - ✓ Comprehensive testing (unit, integration, E2E)
 - ✓ Performance optimization and security audit
 - ✓ Production deployment to AWS ECS Multi-AZ
-- ✓ CloudWatch monitoring and alerting setup
+- ✓ CloudWatch monitoring and alerting setup for Lambda, SQS, API Gateway
 - ✓ Final bug fixes and documentation
-- Deliverable: Production-ready application deployed on AWS
+- Deliverable: Production-ready application deployed on AWS with complete AI service architecture
 
 **Key Milestones:**
 1. Week 2: Technical specification and AWS architecture approved
@@ -290,23 +824,7 @@ The platform employs a modern full-stack web architecture designed for scalabili
 **Operating Costs (Monthly)**
 
 **Infrastructure & Hosting (AWS):**
-- **Amazon ECS (Fargate)**:
-  - 2 tasks (Next.js + Spring Boot) in active AZ-1: $30/month
-  - 2 standby tasks in passive AZ-2 (minimal usage): $10/month
-  - Application Load Balancer: $25/month
-- **Amazon RDS PostgreSQL (Multi-AZ active-passive)**:
-  - db.t3.medium instance (primary + standby): $85/month
-  - Storage (100 GB): $12/month
-- **Amazon ElastiCache (Redis)**:
-  - cache.t3.micro: $15/month
-- **Amazon S3**:
-  - Storage (50 GB): $1.15/month
-  - Data transfer: $5/month
-- **Amazon CloudFront (CDN)**: $10/month
-- **Amazon CloudWatch**: $10/month
-- **Data Transfer (outbound)**: $15/month
-- **VPC & Networking**: $5/month
-- **Subtotal AWS Infrastructure: $222/month**
+- [AWS Infrastructure & Hosting](https://calculator.aws/#/estimate?key=new&id=12ba5685fc9a8db7fe70ac3c98e96e5d991f0386)
 
 **Third-party Services:**
 - **Google Gemini Flash API**: Free tier
@@ -318,24 +836,24 @@ The platform employs a modern full-stack web architecture designed for scalabili
 - Domain & SSL renewal: $0.08/month (amortized from $1/year, SSL via AWS Certificate Manager - Free)
 - **Subtotal Other: $15.08/month**
 
-**Total Monthly Operating Costs: $237.08/month**
+**Total Monthly Operating Costs: $103.66/month**
 
 **Annual Budget Summary**
 
 **Development Phase (3 Months):**
 - Development costs: $1 (one-time, domain only)
-- Operating costs (3 months): $711.24 ($237.08 × 3 months)
-- **Total Development Phase: $712.24**
+- Operating costs (3 months): $310.98 ($103.66 × 3 months)
+- **Total Development Phase: $311.98**
 
 **Year 1 (After Launch):**
 - Development costs: $1 (one-time, domain only)
-- Operating costs: $2,844.96 ($237.08 × 12 months)
-- **Total Year 1: $2,845.96**
+- Operating costs: $1,243.92 ($103.66 × 12 months)
+- **Total Year 1: $1,244.92**
 
 **Year 2+ (Annual Recurring):**
-- Operating costs: $2,844.96/year
+- Operating costs: $1,243.92/year
 - Domain renewal: $1/year
-- **Total Annual: $2,845.96**
+- **Total Annual: $1,244.92**
 
 **Revenue Projections (Subscription Model)**
 
@@ -347,17 +865,17 @@ The platform employs a modern full-stack web architecture designed for scalabili
 **Conservative Revenue Estimate (Year 1):**
 - Month 6-12: Average 100 Premium + 200 Members
 - Revenue: (100 × $15 + 200 × $5) × 7 months = $17,500
-- Operating costs (Year 1): $2,845.96
-- **Net Profit Year 1: $14,654.04**
+- Operating costs (Year 1): $1,243.92
+- **Net Profit Year 1: $16,256.08**
 - Break-even: Month 1 after launch
 
 **Optimistic Revenue Estimate (Year 2):**
 - 500 Premium + 1,000 Members
 - Monthly revenue: $12,500
 - Annual revenue: $150,000
-- Operating costs: $2,845.96
-- **Net Profit Year 2: $147,154.04**
-- Profit margin: ~98% after operating costs
+- Operating costs: $1,243.92
+- **Net Profit Year 2: $148,756.08**
+- Profit margin: ~97.6% after operating costs
 
 **Cost Optimization Strategies:**
 - Zero personnel costs (self-developed project)
@@ -366,6 +884,10 @@ The platform employs a modern full-stack web architecture designed for scalabili
 - Implement caching with ElastiCache to reduce database queries
 - Use CloudFront CDN to minimize data transfer costs
 - Leverage free tier of Google Gemini Flash API for AI features
+- Use AWS Lambda for cost-effective serverless AI processing (pay per request)
+- Amazon SQS provides reliable message queuing with minimal cost
+- Amazon Bedrock Titan V2 Embeddings offers competitive pricing for vector generation
+- DynamoDB on-demand pricing scales with usage
 - Utilize free dictionary APIs and open-source translation libraries
 - Free development tools and design software (VS Code, Figma Free, etc.)
 - Leverage AWS Free Tier during initial development
@@ -483,18 +1005,28 @@ The platform employs a modern full-stack web architecture designed for scalabili
 **Platform Capabilities:**
 - Fully functional web application with 5 integrated modules
 - Real-time collaboration features (video/voice calls, messaging)
-- AI-powered assessment for Speaking and Writing using Google Gemini Flash
+- Serverless AI service architecture with asynchronous processing
+- AI-powered Writing assessment via Lambda Function 1 (grammar, vocabulary, task achievement, coherence)
+- AI-powered Speaking assessment via Lambda Function 2 (pronunciation, fluency, coherence, lexical resource)
+- RAG-based flashcard generation via Lambda Function 3 with smart query generation and document understanding
 - Scalable Multi-AZ architecture on AWS ECS supporting 10,000+ concurrent users
 - Mobile-responsive design for learning on-the-go
 - Robust RESTful API built with Spring Boot monolith
 - High availability with 99.9% uptime through active-passive Multi-AZ deployment
+- Vector embeddings and semantic search for intelligent content retrieval
 
 **Technical Achievements:**
 - Modern full-stack web development with Next.js and Spring Boot
 - Real-time communication implementation (WebRTC, Spring WebSocket)
-- Google Gemini Flash AI/ML integration and API management
+- Serverless AI service architecture with API Gateway, SQS, and Lambda
+- Three specialized Lambda functions for Writing/Speaking assessment and RAG-based flashcard generation
+- RAG (Retrieval-Augmented Generation) implementation with Amazon Titan V2 Embeddings
+- Vector store integration for semantic search and document retrieval
+- Google Gemini Flash AI/ML integration for assessments and smart query generation
+- Amazon Bedrock integration for alternative AI models and embeddings
 - AWS cloud infrastructure and active-passive Multi-AZ architecture implementation
 - PostgreSQL database design and optimization
+- DynamoDB for AI results and flashcard storage
 - Container orchestration with Amazon ECS Fargate
 - Security best practices with Spring Security and AWS services
 - DevOps practices with CloudWatch monitoring and automated deployments
@@ -512,8 +1044,10 @@ The platform employs a modern full-stack web architecture designed for scalabili
 - Improved IELTS scores through consistent practice
 - Better time management with Pomodoro integration
 - Enhanced vocabulary through flashcard system
-- Speaking confidence through AI feedback
-- Writing skills improvement with detailed analysis
+- Intelligent flashcard generation from documents using RAG technology
+- Speaking confidence through AI feedback with detailed pronunciation and fluency analysis
+- Writing skills improvement with detailed grammar, vocabulary, and task achievement analysis
+- Context-aware learning through RAG-based flashcard generation that understands document content
 
 #### Business Value
 **Market Position:**
@@ -564,3 +1098,7 @@ The platform employs a modern full-stack web architecture designed for scalabili
 - User retention: 60%+ monthly active users
 - NPS Score: 50+ (indicating strong user satisfaction)
 - Average IELTS score improvement: 0.5-1.0 band increase
+
+## Project Planning
+
+<iframe src="/Bandup-Proposal.pdf" width="100%" height="800" style="border:0;"></iframe>

@@ -1,123 +1,124 @@
 ---
-title: "Event 1"
-date: 
+title: "Sự kiện 1"
+date: 2025-09-18
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
+# Báo cáo thu hoạch: “AWS Cloud Day Vietnam - AI Edition 2025”
 
+&emsp;**Tên sự kiện:** Vietnam Cloud Day 2025  
 
+&emsp;**Ngày:** 18 tháng 9 năm 2025  
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+&emsp;**Địa điểm:** Số 2 đường Hải Triều, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh  
 
-### Mục Đích Của Sự Kiện
+&emsp;**Vai trò trong sự kiện:** Người tham dự  
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+## Mục tiêu sự kiện
+Sự kiện **AWS Cloud Day Vietnam - AI Edition 2025** được định vị là một cuộc tụ họp quan trọng của cộng đồng công nghệ và kinh doanh tại Việt Nam. Mục tiêu chính của sự kiện là thúc đẩy quá trình chuyển đổi số của nền kinh tế Việt Nam bằng cách tận dụng sức mạnh cộng hưởng của **Điện toán đám mây (Cloud Computing)** và **Trí tuệ nhân tạo (AI)**.
 
-### Danh Sách Diễn Giả
+Các mục tiêu bao trùm của sự kiện có thể được phân thành bốn trụ cột chiến lược:
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+* **Phổ cập AI Tạo sinh cho Doanh nghiệp:** Đưa AI Tạo sinh (GenAI) vượt ra khỏi sự hào nhoáng ban đầu để đi vào triển khai thực tế. Mục tiêu là chứng minh cách các doanh nghiệp có thể biến đổi các giải pháp AI chung chung thành các chương trình tinh vi, nhận biết ngữ cảnh, nhấn mạnh "chiến lược dữ liệu toàn diện" là yếu tố tạo nên sự khác biệt then chốt.
+* **Xóa bỏ ranh giới giữa Kinh doanh và CNTT:** Đặc biệt trong lĩnh vực Dịch vụ Tài chính, nhằm thu hẹp khoảng cách truyền thống giữa mục tiêu vận hành kinh doanh và công nghệ thông tin. Mục tiêu là cho thấy công nghệ đám mây không chỉ là cơ sở hạ tầng mà còn là động lực tạo ra giá trị kinh doanh, cho phép các mô hình "Ngân hàng Hệ sinh thái" (Ecosystem Banking) và "Tài chính Nhúng" (Embedded Finance).
+* **Tăng tốc hiện đại hóa theo đặc thù ngành:** Cung cấp lộ trình phù hợp cho các ngành công nghiệp đa dạng (Bán lẻ, Năng lượng, Viễn thông, Khu vực công). Nêu bật các câu chuyện thành công như **Xanh SM**, **Honda Việt Nam**, và **Masterise Group** để chứng minh rằng hiện đại hóa đòi hỏi các con đường cụ thể, cho dù thông qua việc di chuyển (migration) hay xây dựng các ứng dụng thuần đám mây (cloud-native) hoàn toàn mới.
+* **Củng cố An ninh và Khả năng phục hồi:** Thiết lập tư duy "bảo mật ngay từ thiết kế" (security by design). Mục đích là hướng dẫn người tham dự cách tích hợp các phương pháp bảo mật tốt nhất trong suốt vòng đời ứng dụng—từ phát triển đến vận hành thực tế.
 
-### Nội Dung Nổi Bật
+---
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+## Diễn giả
+Sự kiện quy tụ danh sách đầy đủ gồm 24 diễn giả, từ các quan chức chính phủ cấp cao đến các giám đốc điều hành C-level và các chuyên gia kỹ thuật.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+| Tên diễn giả | Chức danh | Tổ chức |
+| :--- | :--- | :--- |
+| **H.E. Pham Duc Long** | Thứ trưởng Bộ Khoa học và Công nghệ | Bộ Khoa học và Công nghệ |
+| **H.E. Marc E. Knapper** | Đại sứ Hoa Kỳ tại Việt Nam | Đại sứ quán Hoa Kỳ tại Việt Nam |
+| **Jaime Valles** | Phó Chủ tịch, TGĐ Châu Á Thái Bình Dương & Nhật Bản | AWS |
+| **Jeff Johnson** | Giám đốc điều hành khu vực ASEAN | AWS |
+| **Dr. Jens Lottner** | Tổng Giám đốc (CEO) | Techcombank |
+| **Dieter Botha** | CEO | TymeX |
+| **Trang Phung** | CEO | U2U Network |
+| **Vu Van** | Đồng sáng lập & CEO | ELSA Corp |
+| **Nguyen Hoa Binh** | Chủ tịch | Nexttech Group |
+| **Gia Hieu Dinh** | Giám đốc Công nghệ thông tin (CIO) | F88 |
+| **Nguyen Hong Phuong Huy** | Trưởng bộ phận Hạ tầng Đám mây & An ninh Mạng | Masterise Group |
+| **Nguyen Vu Hoang** | Trưởng bộ phận Công nghệ | VTV Digital |
+| **Ha Anh Van** | Trưởng phòng: Bộ phận Giải pháp CNTT | Honda Việt Nam |
+| **Nguyen Tuan Huy** | Giám đốc Chuyển đổi số | Mobifone |
+| **Minh Hoang** | Giám đốc Dữ liệu (CDO) | Techcom Securities |
+| **Vincent Nguyen** | Giám đốc điều hành | Nam Long Commercial Property |
+| **Seunghoon Chae** | Tổng Giám đốc | MegazoneCloud Vietnam |
+| **Uy Tran** | Đồng sáng lập & COO | Katalon |
+| **Thai Huy Chuong** | Trưởng bộ phận Phát triển Ứng dụng | Bảo Việt Holdings |
+| **Tran Dinh Khiem** | Giám đốc Ngân hàng Số | Techcombank |
+| **Christopher Bennett** | Giám đốc Công nghệ (CTO) | TymeX |
+| **Selma Belhadjamor** | Chuyên gia Khoa học Dữ liệu Chính | Onebyzero |
+| **Ngo Manh Ha** | Đồng CEO, CTO | TechX Corp |
+| **Nguyen Thanh Binh** | Trưởng bộ phận DevOps | Renova Cloud |
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+---
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+## Điểm nhấn chính
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+### Sự hội tụ chiến lược: Chính sách và Lãnh đạo
+* **Sự bảo trợ của Chính phủ:** Bài phát biểu khai mạc của Thứ trưởng Phạm Đức Long và Đại sứ Marc E. Knapper báo hiệu sự ủng hộ song phương mạnh mẽ đối với cơ sở hạ tầng kỹ thuật số của Việt Nam.
+* **Tọa đàm Lãnh đạo:** Các thảo luận được điều phối bởi Jeff Johnson với các lãnh đạo như Vũ Văn (ELSA Corp) và Nguyễn Hòa Bình (Nexttech Group) tập trung vào khía cạnh văn hóa của sự đổi mới, khám phá cách "Con người và Văn hóa" thúc đẩy việc áp dụng đám mây.
 
-#### Domain-Driven Design (DDD)
+### Nhóm 1: Dịch vụ Tài chính (FSI) – Mô hình Ngân hàng Mới
+* **Đổi mới trong Ngân hàng & Bảo hiểm:** Techcombank và Bảo Việt Holdings thảo luận về sự chuyển dịch sang "Ngân hàng Hệ sinh thái".
+* **Triển khai XGenAI:** Ngô Mạnh Hà (TechX) trình bày về XGenAI, chứng minh cách các đối tác địa phương đang xây dựng trên nền tảng AWS để mang lại trải nghiệm khách hàng vượt trội trong lĩnh vực tài chính.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+### Nhóm 2: Hiện đại hóa Đa ngành
+* **Câu chuyện thành công về Di chuyển lên đám mây:** Hà Anh Văn chia sẻ kế hoạch chi tiết của Honda Việt Nam về việc di chuyển SAP, chuyển cuộc thảo luận từ việc đơn thuần "nhấc và đặt" (lift and shift) sang nâng cao giá trị doanh nghiệp.
+* **Truyền thông Kỹ thuật số & Viễn thông:** VTV Digital và Mobifone chia sẻ hành trình chuyển đổi số "Từ Tầm nhìn đến Giá trị".
+* **Vận hành Xuất sắc:** MegazoneCloud nhấn mạnh việc sử dụng AI để tinh giản quy trình và tối ưu hóa chi phí sau khi di chuyển lên đám mây.
+* **Sự linh hoạt trong kinh doanh:** Masterise Group trình bày chiến lược mạnh mẽ trong việc di chuyển hàng trăm khối lượng công việc VMware sang AWS.
 
-#### Event-Driven Architecture
+### Nhóm 3 & 4: Dữ liệu, AI và DevOps
+* **Chiến lược Dữ liệu:** Các chuyên gia từ Onebyzero và Techcom Securities nhấn mạnh rằng "dữ liệu đóng vai trò là yếu tố khác biệt quan trọng" đối với AI Tạo sinh.
+* **Cuộc cách mạng DevOps:** Katalon và Renova Cloud khám phá việc tích hợp GenAI vào vòng đời DevOps để tự động hóa kiểm thử và tạo mã.
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+---
 
-#### Compute Evolution
+## Bài học chính
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+### Tư duy thiết kế
+* **Công nghệ dẫn dắt bởi kinh doanh:** Chuyển tư duy từ tập trung vào CNTT sang tập trung vào kinh doanh (ví dụ: F88 cải thiện khả năng tiếp cận tài chính, Nam Long tối ưu hóa quản lý bất động sản).
+* **Khả năng phục hồi là tiêu chuẩn:** Khả năng phục hồi liên tục đòi hỏi một thiết kế có chủ đích sử dụng các công nghệ thuần đám mây.
 
-#### Amazon Q Developer
+### Kiến trúc kỹ thuật
+* **Sự phụ thuộc giữa Dữ liệu và AI:** AI Tạo sinh không thể hoạt động nếu không có Chiến lược Dữ liệu. Chất lượng đầu ra tỷ lệ thuận với chất lượng dữ liệu đầu vào.
+* **Các lộ trình lai:**
+    * Tái cấu trúc sang vi dịch vụ/serverless (ví dụ: TymeX).
+    * Tái nền tảng (ví dụ: Masterise Group chuyển VMware sang AWS).
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+### Chiến lược hiện đại hóa
+* **Hơn cả việc di chuyển:** Chiến lược là "Di chuyển để Vận hành" (Migrate to Operate)—tập trung vào đổi mới liên tục sau khi di chuyển.
+* **Tích hợp hệ sinh thái:** Đối với FSI, chiến lược là Ngân hàng Mở (Open Banking)—cung cấp dịch vụ thông qua API.
 
-### Những Gì Học Được
+### Ứng dụng vào công việc
+1.  **Kiểm toán độ sẵn sàng của dữ liệu:** Thực hiện kiểm toán dữ liệu để đảm bảo có "chiến lược dữ liệu toàn diện" trước khi bắt đầu các dự án GenAI.
+2.  **Thử nghiệm GenAI trong DevOps:** Thử nghiệm tạo mã và kiểm thử tự động để đo lường tốc độ phân phối.
+3.  **Đánh giá các khối lượng công việc cũ:** Phân tích các phiên trình bày của Honda Việt Nam và Masterise Group để đối chiếu lộ trình SAP/VMware hiện tại với các phương pháp tốt nhất.
+4.  **Triển khai "Bảo mật ở quy mô lớn":** Tích hợp các công cụ bảo mật trong suốt vòng đời ứng dụng.
 
-#### Tư Duy Thiết Kế
+---
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+## Trải nghiệm sự kiện
 
-#### Kiến Trúc Kỹ Thuật
+Tham dự **AWS Cloud Day Vietnam - AI Edition 2025** mang lại cái nhìn toàn diện về tương lai nền kinh tế số của Việt Nam. Sự kiện không chỉ là nơi trưng bày sản phẩm mà còn là diễn đàn chiến lược liên kết chính sách quốc gia, chuyển đổi doanh nghiệp và triển khai kỹ thuật.
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+* **Học hỏi từ các diễn giả có chuyên môn cao:** Một góc nhìn cân bằng giữa chiến lược và thực thi được cung cấp bởi các diễn giả như Dr. Jens Lottner (Techcombank) và các chuyên gia kỹ thuật từ TechX và Masterise.
+* **Tiếp cận kỹ thuật thực tế:** Thu được những hiểu biết sâu sắc về kỹ thuật, đặc biệt là về "AI Tạo sinh trong Vòng đời DevOps," cho thấy sự chuyển dịch từ viết mã thủ công sang phát triển có sự hỗ trợ của AI.
+* **Kết nối và thảo luận:** Sự kiện thúc đẩy đối thoại giữa các quan chức chính phủ, lãnh đạo ngân hàng và kiến trúc sư kỹ thuật, làm nổi bật rằng chuyển đổi liên quan đến văn hóa cũng nhiều như mã lệnh.
 
-#### Chiến Lược Hiện Đại Hóa
+### Bài học rút ra
+* **Dữ liệu là yếu tố khác biệt then chốt:** Nếu không có dữ liệu chất lượng cao, GenAI chỉ là một sự mới lạ.
+* **Hiện đại hóa là liên tục:** Nó đòi hỏi sự chuyển dịch sang "vận hành thông minh hơn".
+* **Bảo mật là việc của mọi người:** Nó phải được tích hợp từ dòng mã đầu tiên.
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+---
 
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+**Kết luận:**
+Nhìn chung, sự kiện đã chứng minh hiệu quả rằng sự hội tụ của cơ sở hạ tầng đám mây AWS và AI Tạo sinh là động cơ chính cho giai đoạn tăng trưởng kinh tế tiếp theo của Việt Nam, cung cấp một lộ trình rõ ràng, khả thi cho các tổ chức sẵn sàng hiện đại hóa.

@@ -1,56 +1,65 @@
 ---
 title: "Worklog Tuần 6"
-date: 
-weight: 1
+date: 2025-10-14
+weight: 6
 chapter: false
-pre: " <b> 1.6. </b> "
+pre: "<b>1.6. </b>"
 ---
 
+### Mục tiêu tuần 6
 
+- Nắm vững các dịch vụ lưu trữ AWS cơ bản và use cases của chúng.
+- Nâng cao kỹ năng lập trình Python thông qua các bài tập thực hành.
+- Thiết kế và hoàn thiện kiến trúc hạ tầng dự án.
+- Tham gia webinar "Reinventing DevSecOps with AWS Generative AI" để khám phá thực hành DevSecOps và Amazon Q Developer.
 
-### Mục tiêu tuần 6:
+### Các công việc đã hoàn thành trong tuần
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+|-----|----------|--------------|-----------------|----------------|
+| 2 | - Nghiên cứu Amazon S3 cơ bản: Kiến trúc Bucket, đảm bảo độ bền, và khả năng host static website.<br>- Khám phá S3 Storage Classes (Standard, Standard-IA) và Amazon Glacier cho giải pháp cold storage.<br>- Hoàn thành: **Static Website Hosting with Amazon S3**. | 14/10/2025 | 15/10/2025 | [AWS S3 Documentation](https://aws.amazon.com/s3/) |
+| 3 | - Học các loại AWS Storage Gateway (File, Volume, Tape Gateway) và patterns tích hợp.<br>- Hiểu Object Lifecycle Management policies để tối ưu chi phí.<br>- Thực hành Python cơ bản: data structures, functions, và error handling.<br>- **Tham gia webinar:** "Reinventing DevSecOps with AWS Generative AI" với sự góp mặt của anh Hoàng Kha. | 16/10/2025 | 17/10/2025 | [AWS Storage Gateway](https://aws.amazon.com/storagegateway/)<br>[AWS Events](https://aws.amazon.com/events/) |
+| 4 | - Nghiên cứu khái niệm disaster recovery: RTO, RPO, và các chiến lược Backup & Restore.<br>- Khám phá dịch vụ AWS Backup cho quản lý backup tập trung.<br>- Thực hành: Tạo S3 buckets, upload files, cấu hình static website hosting, và test lifecycle policies.<br>- Nghiên cứu phương pháp DevSecOps: CI/CD pipelines, SAST/DAST tools, Infrastructure as Code. | 18/10/2025 | 19/10/2025 | [AWS Backup](https://aws.amazon.com/backup/) |
+| 5 | - Hoàn thiện sơ đồ kiến trúc hạ tầng dự án với các mối quan hệ component chi tiết.<br>- Tái cấu trúc code skeleton để phù hợp với thiết kế kiến trúc đã cập nhật.<br>- Chuẩn hóa lựa chọn ngôn ngữ lập trình và framework cho tính nhất quán của team.<br>- Khám phá khả năng Amazon Q Developer: AI-powered code generation, testing, và vulnerability scanning. | 20/10/2025 | 21/10/2025 | [Amazon Q Developer](https://aws.amazon.com/q/developer/) |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Khóa học AWS Skill Builder đã hoàn thành
 
+| Khóa học | Danh mục | Trạng thái |
+|----------|----------|------------|
+| Static Website Hosting with Amazon S3 | Lưu trữ | ✅ |
+| Data Protection with AWS Backup | Reliability | ✅ |
+| Content Delivery with Amazon CloudFront | Mạng | ✅ |
 
-### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả đạt được tuần 6
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+**Thành thạo Dịch vụ Lưu trữ:**
+- Hiểu toàn diện về kiến trúc Amazon S3: Buckets, độ bền (99.999999999%), và static website hosting
+- Nắm vững S3 Storage Classes: Standard, Standard-IA, Glacier cho các access patterns khác nhau
+- Học patterns tích hợp AWS Storage Gateway cho hybrid cloud storage
+- Hiểu Object Lifecycle Management cho automated data tiering và tối ưu chi phí
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+**Disaster Recovery & Backup:**
+- Nắm bắt fundamentals disaster recovery: RTO (Recovery Time Objective) và RPO (Recovery Point Objective)
+- Học dịch vụ AWS Backup cho quản lý backup tập trung across services
+- Hiểu các chiến lược Backup & Restore cho business continuity
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+**Kỹ năng Phát triển:**
+- Nâng cao lập trình Python thông qua các bài tập thực hành
+- Tạo thành công S3 buckets, cấu hình static websites, và test lifecycle policies
+- Cải thiện hiểu biết về data structures và error handling
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+**Lập kế hoạch Dự án:**
+- Hoàn thiện sơ đồ kiến trúc hạ tầng toàn diện
+- Tái cấu trúc code skeleton với cấu trúc thư mục phù hợp
+- Chuẩn hóa technology stack cho hợp tác team
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+**Insights DevSecOps:**
+- Tham gia webinar "Reinventing DevSecOps with AWS Generative AI" (16/10/2025)
+- Học tích hợp DevSecOps: Security trong SDLC sử dụng Jenkins (CI/CD), SonarQube (SAST), OWASP ZAP (DAST), Terraform (IaC)
+- Khám phá Amazon Q Developer: AI assistant cho code generation, testing, vulnerability scanning, và AWS optimization
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+**Bài học chính:**
+- S3 là nền tảng cho object storage trên AWS - hiểu storage classes là cực kỳ quan trọng cho tối ưu chi phí
+- Lifecycle policies tự động hóa quản lý dữ liệu và giảm chi phí lưu trữ đáng kể
+- AWS Backup cung cấp quản lý backup thống nhất across multiple AWS services
+- DevSecOps tích hợp security xuyên suốt development lifecycle, không phải là afterthought

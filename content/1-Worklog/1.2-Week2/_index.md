@@ -1,57 +1,59 @@
 ---
 title: "Week 2 Worklog"
-date: 
-weight: 1
+date: 2025-09-15
+weight: 2
 chapter: false
-pre: " <b> 1.2. </b> "
+pre: "<b>1.2. </b>"
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 2 Objectives
 
-### Week 2 Objectives:
+- Complete Module 2, mastering Amazon EC2 and VPC fundamentals.
+- Prepare and configure essential resources for launching EC2 instances.
+- Explore Amazon Route 53 and DNS management concepts.
+- Participate in Cloud Day event for AI and Data insights.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks Completed This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+|-----|------|------------|-----------------|---------------------|
+| 2 | - Study VPC architecture and networking components in depth.<br>- Learn AWS architecture design principles from Mentor Gia Hung's lectures.<br>- Complete AWS Skill Builder: **Networking Essentials with Amazon VPC**. | 15/09/2025 | 16/09/2025 | [AWS VPC Documentation](https://docs.aws.amazon.com/vpc/) |
+| 3 | - Create VPC resources to prepare for EC2 instance deployment.<br>- Launch EC2 instances using configured resources.<br>- Study Security Groups and Network ACLs.<br>- Complete: **Compute Essentials with Amazon EC2**. | 16/09/2025 | 17/09/2025 | [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/) <br> [Introduction to Amazon EC2](https://000004.awsstudygroup.com/) <br> [Deploying FCJ Management Application with Auto Scaling Group](https://000006.awsstudygroup.com/) |
+| 4 | - Resolve AWS account authentication issues by submitting verification documents.<br>- Complete: **Creating Your First AWS Account** and **Getting Help with AWS Support**. | 17/09/2025 | 20/09/2025 | [AWS Support](https://aws.amazon.com/support/) <br>[Request Support with AWS Support](https://000009.awsstudygroup.com/) |
+| 5 | - Attend Cloud Day event.<br>- Gain insights into AI and Data trends.<br>- Network with prominent mentors in the AWS community. | 18/09/2025 | 18/09/2025 | Cloud Day Event |
 
+### AWS Skill Builder Courses Completed
 
-### Week 2 Achievements:
+| Course | Category | Status |
+|--------|----------|--------|
+| Creating Your First AWS Account | Getting Started | ✅ |
+| Managing Costs with AWS Budgets | Cost Management | ✅ |
+| Getting Help with AWS Support | Support | ✅ |
+| Access Management with AWS IAM | Security | ✅ |
+| Networking Essentials with Amazon VPC | Networking | ✅ |
+| Compute Essentials with Amazon EC2 | Compute | ✅ |
+| Instance Profiling with IAM Roles for EC2 | Security | ✅ |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Week 2 Achievements
 
-* Successfully created and configured an AWS Free Tier account.
+**Technical Skills Acquired:**
+- Gained comprehensive understanding of VPC architecture and EC2 fundamentals
+- Mastered the process of preparing resources for EC2 instance deployment:
+  - Created and configured **Subnets** for network segmentation
+  - Set up **Internet Gateway** for external connectivity
+  - Configured **Route Tables** to manage traffic routing
+  - Implemented **Security Groups** to control inbound/outbound traffic
+- Understood IAM roles and instance profiles for secure EC2 access
+- Learned AWS cost management strategies using AWS Budgets
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+**Cloud Day Event Highlights:**
+- Participated in networking sessions with AWS mentors and industry professionals
+- Gained valuable insights into AI and Data market trends
+- Understood the future potential and market demand for AI technologies
+- Received commemorative gift from event organizers
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+**Key Takeaways:**
+- VPC is the foundation for all AWS networking - understanding it is critical
+- Security Groups act as virtual firewalls at the instance level
+- IAM roles eliminate the need for hardcoded credentials in EC2 instances
+- AWS Budgets help prevent unexpected costs through proactive monitoring

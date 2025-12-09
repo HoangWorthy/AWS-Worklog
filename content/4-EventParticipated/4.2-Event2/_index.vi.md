@@ -1,123 +1,87 @@
 ---
-title: "Event 2"
-date: 
+title: "Sự kiện 2"
+date: 2025-11-07
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
+# Báo cáo Tổng kết: Workshop “Khám Phá Agentic AI – Amazon QuickSuite”
 
+### Mục tiêu Sự kiện
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+-   **Làm rõ khái niệm Agentic AI**: Định nghĩa sự chuyển dịch từ AI Tạo sinh (Generative AI) thụ động sang AI Tác tử (Agentic AI) tự chủ.
+-   **Ra mắt Amazon QuickSuite**: Thực hiện buổi trình diễn trực tiếp (live demo) đầu tiên của giải pháp này tại Việt Nam.
+-   **Thúc đẩy ứng dụng**: Giảm thiểu rào cản tài chính thông qua Chương trình AWS LIFT (gói tín dụng lên tới $80,000 USD).
+-   **Thực hành chuyên sâu**: Cung cấp môi trường thực tế để xây dựng các mô hình AI dưới sự hướng dẫn của chuyên gia.
 
-### Mục Đích Của Sự Kiện
+### Diễn giả
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+-   **Vivien Nguyen** – Territory Manager (Quản lý Vùng), AWS
+-   **Tung Cao** – Solution Architect (Kiến trúc sư Giải pháp), AWS
+-   **Đội ngũ Cloud Kinetics** – Đối tác Triển khai Chiến lược
 
-### Danh Sách Diễn Giả
+### Điểm nhấn Chính
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+#### Sự thay đổi mô hình: Từ Generative sang Agentic
+Workshop đã thiết lập sự phân biệt rõ ràng giữa các thế hệ AI:
+-   **Generative AI (AI Tạo sinh)**: Tập trung vào việc tạo ra nội dung (văn bản, hình ảnh, mã nguồn) dựa trên các câu lệnh (prompts).
+-   **Agentic AI (AI Tác tử)**: Tập trung vào sự **tự chủ** và **hành động**. Các hệ thống này có thể nhận thức môi trường, suy luận qua các quy trình làm việc phức tạp và thực thi nhiệm vụ một cách độc lập mà không cần sự can thiệp liên tục của con người.
 
-### Nội Dung Nổi Bật
+#### Giới thiệu Amazon QuickSuite
+Sự kiện đánh dấu lần đầu tiên Amazon QuickSuite được trình diễn trực tiếp tại Việt Nam.
+-   **Hệ sinh thái hợp nhất**: Tích hợp liền mạch khả năng trực quan hóa dữ liệu (QuickSight) với năng lực tạo sinh (Quick Suite Q).
+-   **Tốc độ và sự linh hoạt**: Thương hiệu "Quick" nhấn mạnh khả năng triển khai nhanh chóng, cho phép doanh nghiệp đi từ ý tưởng đến thực thi trong thời gian ngắn.
+-   **Lấy dữ liệu làm trung tâm**: Bộ giải pháp được thiết kế để xử lý khối lượng dữ liệu lớn, điều kiện tiên quyết để các tác tử thông minh (agents) đưa ra quyết định chính xác.
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Quan hệ Đối tác & Hỗ trợ Chiến lược
+-   **Hợp tác với Cloud Kinetics**: Sự kiện nhấn mạnh rằng trong khi AWS cung cấp nền tảng, các đối tác như Cloud Kinetics đóng vai trò thiết yếu trong việc tư vấn kiến trúc và triển khai "bước cuối cùng" (last-mile).
+-   **Hỗ trợ hai lớp**: Người tham dự nhận được sự hỗ trợ từ cả chuyên gia nền tảng (AWS) và đối tác tư vấn, giúp giảm thiểu rủi ro kỹ thuật khi áp dụng công nghệ mới.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+#### Hỗ trợ Tài chính: Chương trình AWS LIFT
+-   **Tín dụng $80,000 USD**: Một gói ưu đãi tài chính lớn được giới thiệu nhằm hỗ trợ khách hàng mới và các doanh nghiệp vừa & nhỏ (SMBs).
+-   **Giảm thiểu rủi ro**: Nguồn tài trợ này cho phép các công ty thử nghiệm các hệ thống tính toán hiệu năng cao và R&D mà không phải chịu gánh nặng chi phí hạ tầng ngay lập tức.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+### Bài học Chính (Key Takeaways)
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+#### Tư duy Thiết kế (Design Mindset)
+-   **Tập trung vào sự tự chủ**: Khi thiết kế Agentic AI, mục tiêu là xây dựng các hệ thống hoạt động *thay mặt* người dùng, chứ không chỉ hỗ trợ họ.
+-   **Ứng dụng thực tế**: Vượt qua sự "hào nhoáng" của công nghệ bằng cách xác định các nút thắt vận hành cụ thể nơi một tác tử tự chủ có thể tạo ra giá trị (ví dụ: báo cáo tự động, điều chỉnh chuỗi cung ứng).
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+#### Kiến trúc Kỹ thuật
+-   **Tiếp cận theo hệ sinh thái**: Các tác tử hiệu quả cần một mạng lưới công cụ được kết nối. QuickSuite đóng vai trò là mạch kết nối giữa nguồn dữ liệu và logic hành động.
+-   **Sẵn sàng về hạ tầng**: Việc tạo tài khoản AWS và thiết lập môi trường chính xác là bước đi đầu tiên quan trọng để tiếp cận các năng lực nâng cao này.
 
-#### Domain-Driven Design (DDD)
+#### Chiến lược Triển khai
+-   **Lợi thế thông tin**: Những người sớm tiếp cận QuickSuite sẽ có lợi thế cạnh tranh bằng cách sử dụng các công cụ mà thị trường rộng lớn chưa thành thạo.
+-   **Quản lý chi phí**: Tận dụng các chương trình như LIFT là yếu tố then chốt để tăng tốc thời gian đưa sản phẩm ra thị trường (time-to-market) trong khi vẫn quản lý tốt dòng tiền.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+### Ứng dụng vào Công việc
 
-#### Event-Driven Architecture
+-   **Tìm hiểu QuickSuite**: Nghiên cứu cách tích hợp QuickSight và Quick Suite Q vào quy trình phân tích dữ liệu hiện tại để tạo ra các "Analyst Agents" (Tác tử phân tích).
+-   **Tận dụng ưu đãi tài chính**: Đăng ký tham gia Chương trình AWS LIFT để đảm bảo nguồn tín dụng cho các dự án R&D sắp tới.
+-   **Xác định tình huống sử dụng (Use Cases)**: Rà soát quy trình vận hành nội bộ để tìm ra các tác vụ lặp lại, nhiều bước phù hợp cho việc thực thi tự động bởi Agentic AI.
+-   **Hợp tác với đối tác**: Kết nối với các đối tác giải pháp như Cloud Kinetics cho các nhu cầu kiến trúc phức tạp thay vì tự xây dựng toàn bộ (in-house).
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+### Trải nghiệm Sự kiện
 
-#### Compute Evolution
+Tham dự workshop **“Khám Phá Agentic AI”** tại Bitexco Financial Tower là một trải nghiệm chuyên nghiệp và sâu sắc, cung cấp một lộ trình rõ ràng cho tương lai của AI doanh nghiệp. Các trải nghiệm chính bao gồm:
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+#### Tiếp cận Độc quyền và Đổi mới
+-   Việc tham gia vào buổi **demo trực tiếp đầu tiên** của Amazon QuickSuite tại Việt Nam mang lại cảm giác dẫn đầu về công nghệ.
+-   Địa điểm tổ chức tại **Văn phòng AWS Việt Nam** khẳng định cam kết của AWS đối với thị trường nội địa và cung cấp một môi trường chuyên nghiệp chất lượng cao.
 
-#### Amazon Q Developer
+#### Học tập qua Thực hành (Hands-on) Giá trị cao
+-   Phiên **workshop 90 phút** thực sự hữu ích. Khác với các hội thảo thụ động, việc trực tiếp xây dựng các khái niệm với **Quick Sight + Quick Suite Q** giúp củng cố kiến thức lý thuyết vững chắc.
+-   Sự hiện diện của **các chuyên gia kỹ thuật AWS** để hướng dẫn trực tiếp "cầm tay chỉ việc" cho phép giải quyết sự cố ngay lập tức và thảo luận kỹ thuật sâu hơn.
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
-
-### Những Gì Học Được
-
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+#### Kết nối (Networking) và Hệ sinh thái
+-   Giờ nghỉ trưa kéo dài và các phiên networking tạo điều kiện quý báu để thảo luận chiến lược với các đồng nghiệp và chuyên gia trong ngành.
+-   Hiểu rõ vai trò của đối tác **Cloud Kinetics** giúp làm sáng tỏ cách thu hẹp khoảng cách giữa khả năng nền tảng trừu tượng và các giải pháp kinh doanh cụ thể.
 
 #### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+-   **Agentic AI là tương lai của vận hành**: Sự chuyển dịch từ việc "trò chuyện với AI" sang "AI thực hiện công việc" là tất yếu và mang tính cách mạng.
+-   **Tốc độ là yếu tố then chốt**: Các công cụ được thiết kế để triển khai nhanh ("QuickSuite"), cho thấy sự linh hoạt (agility) là thước đo mới cho thành công.
+-   **Nguồn vốn thúc đẩy đổi mới**: Chương trình LIFT thay đổi câu hỏi từ "Chúng ta có đủ khả năng chi trả không?" thành "Chúng ta có thể bắt đầu nhanh đến mức nào?"
 
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+> Nhìn chung, workshop đã thành công trong việc làm sáng tỏ khái niệm phức tạp về Agentic AI và cung cấp các công cụ cụ thể, nguồn vốn và chuyên môn cần thiết để bắt đầu xây dựng ngay lập tức. Đây là một bước đi chiến lược giúp trao quyền cho người tham dự chuyển đổi hoạt động kinh doanh của họ.

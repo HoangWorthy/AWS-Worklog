@@ -1,57 +1,61 @@
 ---
-title: "Week 10 Worklog"
-date: 
-weight: 2
+title: "Worklog Week 10"
+date: 2024-11-11
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 10 Objectives
 
-### Week 10 Objectives:
+- **Stabilize AWS SAM/Serverless deployment environment** and resolve critical issues.
+- **Focus on debugging** core problems: CORS configuration, template validation errors, and API response formatting.
+- **Integrate Frontend/Backend** to enable end-to-end testing on user interface.
+- **Complete** basic **Read** and **Delete** functionalities with proper error handling.
+- **Participate in AWS Cloud Mastery Series event** to receive expert guidance and address project challenges.
+- **Workshop: Load Balancer Configuration** - Set up Application Load Balancer for traffic distribution.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+---
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks Completed This Week
 
+| Day | Task | Start Date | Completion Date | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| Mon | - **Debug CORS:** Analyze CORS configuration in **API Gateway** (CORS headers, preflight OPTIONS requests) and Lambda response headers to allow Frontend access. <br> - **Fix template validation errors:** Review and optimize `template.yaml` file to prevent deployment loop errors and resource dependency issues during `sam deploy`. | 11/11/2024 | 11/11/2024 | API Gateway/CORS Documentation |
+| Tue | - Strengthen **Read** function (Retrieving flashcard sets): Ensure data is queried from DynamoDB correctly and returned in proper JSON format for Frontend consumption. <br> - Implement error handling for missing records and invalid queries. <br> - Add logging for debugging purposes. | 12/11/2024 | 12/11/2024 | DynamoDB Query Documentation |
+| Wed | - **Frontend Integration:** Begin combining Frontend codebase with project and test deployed API endpoints. <br> - **Successfully display** flashcard sets list on user interface. <br> - Test API connectivity and data rendering in React/Vue components. <br> - **Workshop Activity:** Create Application Load Balancer (ALB) in public subnets and configure target groups for ECS services. | 13/11/2024 | 13/11/2024 | Frontend Framework Documentation, [Workshop 5.5](5-Workshop/5.5-Load-Balancer/) |
+| Thu | - Deploy and test **Delete** function (Removing flashcard sets). <br> - **Encountered Error:** Identified authorization issue with **Cognito User Sub ID** when executing Delete function - Lambda unable to extract/process Sub ID from Cognito token correctly. <br> - Begin troubleshooting authentication flow. | 14/11/2024 | 14/11/2024 | AWS Cognito Documentation |
+| Fri | - **Participation in AWS Cloud Mastery Series:** <br>&emsp; + Received expert guidance and clarified questions regarding Serverless architecture, Lambda best practices, and authentication patterns. <br> - **Analyze Update/Delete errors:** Apply mentor guidance to resolve authorization issues and Cognito token parsing problems. <br> - Document solutions for future reference. | 15/11/2024 | 15/11/2024 | Mentor, AWS Cloud Mastery Series |
 
-### Week 10 Achievements:
+---
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Week 10 Achievements
 
-* Successfully created and configured an AWS Free Tier account.
+- **Successfully fixed** CORS error and stabilized SAM deployment process (mitigated template validation errors).
+- **Participated in AWS Cloud Mastery Series event** and gathered essential information to solve major project blockers.
+- **Completed Frontend and Backend integration**, achieving first functional user interface for end-to-end testing.
+- **Successfully deployed Read** (Retrieving flashcard sets) and **Delete** (Removing flashcard sets) functionalities, operational on web interface.
+- **Identified and gained direction** to solve critical bottlenecks:
+  - Authorization error: Lambda fails to retrieve/incorrectly process **Cognito Sub ID** from JWT token, affecting privileged operations
+  - Update function dependency: Requires proper authentication flow and token validation
+- The project has transitioned to basic user testing phase with working CRUD operations.
+- Established debugging workflow and error handling patterns for team.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+**Workshop Progress - Load Balancer Configuration:**
+- Created Application Load Balancer (ALB) in public subnets across two AZs
+- Configured target groups for Frontend (port 3000) and Backend (port 8080) ECS services
+- Set up health checks for automatic unhealthy target removal
+- Configured SSL/TLS termination using ACM certificates
+- Integrated ALB with Route 53 for DNS routing
+- Implemented listener rules for path-based routing (Frontend: `/`, Backend: `/api/*`)
+- Configured security groups to allow ALB traffic to ECS tasks
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+**Key Takeaways:**
+- CORS requires proper configuration in both API Gateway and Lambda response headers
+- Cognito JWT tokens must be properly decoded to extract user identity (Sub ID)
+- Frontend-Backend integration requires careful attention to API contracts and data formats
+- Error handling and logging are essential for debugging production issues
+- AWS Cloud Mastery Series provides valuable real-world insights from experienced practitioners
+- ALB provides intelligent traffic distribution and automatic failover
+- Health checks ensure only healthy targets receive traffic
+- SSL/TLS termination at ALB reduces computational load on backend services

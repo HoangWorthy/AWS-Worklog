@@ -1,6 +1,6 @@
 ---
 title: "Tự đánh giá"
-date: 
+date: 2025-01-01
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
@@ -8,18 +8,18 @@ pre: " <b> 6. </b> "
 
 
 
-Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp…]**.  
+Trong thời gian thực tập tại Amazon Web Services từ 08/09/2025 đến 28/11/2025, tôi tham gia phát triển "Hệ thống Tự học IELTS" — một nền tảng web full-stack hỗ trợ người học tự ôn luyện IELTS.  
+Công việc của tôi bao gồm thiết kế kiến trúc trên AWS (ECS Fargate active–passive Multi-AZ, RDS PostgreSQL, S3, CloudFront), xây dựng backend API với Spring Boot 3 (Java 17, JWT/OAuth2, WebSocket) và frontend Next.js 14 TypeScript. Tôi cũng tích hợp AI hỗ trợ chấm Speaking/Writing bằng Google Gemini Flash (free tier) và thiết lập CI/CD với AWS CodeBuild/CodePipeline.  
 
-Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
+Dự án giúp tôi nâng cao kỹ năng lập trình full-stack, thiết kế/tối ưu cơ sở dữ liệu, triển khai hạ tầng cloud, thực hành DevOps và giao tiếp/kỹ năng viết tài liệu kỹ thuật. Tôi tuân thủ quy trình nhóm và chủ động phối hợp để tháo gỡ vướng mắc, cải thiện chất lượng bàn giao.
 
-Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+Để phản ánh khách quan quá trình thực tập, tôi tự đánh giá theo các tiêu chí sau:
 
 
 | STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
 | 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
-| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
+| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                  ☐          | ☐   | ✅   | ☐          |
 | 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
 | 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
 | 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ☐   | ✅          |
@@ -33,6 +33,6 @@ Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân t
 
 ### Cần cải thiện
 
-* Nâng cao tính kỹ luật, chấp hành nghiêm chỉnh nội quy của công ty hoặc bất kỳ trong một tổ chức nào
-* Cải thiện trong cách tư duy giải quyết vấn đề
-* Học cách giao tiếp tốt hơn trong giao tiếp hằng ngày và trong công việc, xử lý tình huống
+* Nâng cao quản lý thời gian và đảm bảo hoàn thành mốc/kế hoạch nội bộ đúng hạn.  
+* Củng cố tư duy giải quyết vấn đề theo hướng hệ thống (phân rã yêu cầu, kiểm thử giả thuyết, tối ưu hiệu năng Spring Boot/SQL).  
+* Cải thiện độ rõ ràng khi giao tiếp tiếng Anh/Việt trong tài liệu kỹ thuật, bàn giao công việc và cập nhật cho các bên liên quan.

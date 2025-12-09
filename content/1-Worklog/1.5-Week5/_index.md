@@ -1,57 +1,100 @@
 ---
 title: "Week 5 Worklog"
-date: 
-weight: 1
+date: 2025-10-07
+weight: 5
 chapter: false
-pre: " <b> 1.5. </b> "
+pre: "<b>1.5. </b>"
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 5 Objectives
 
-### Week 5 Objectives:
+- Identify and resolve abnormal AWS costs on the account.
+- Design and partition infrastructure architecture for the project.
+- Begin initial project configuration and assign team roles.
+- Explore AWS Skill Builder and advance learning on optimization topics.
+- **Workshop: Complete VPC Network Setup** and begin **Database & Storage Setup**.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks Completed This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+|-----|------|------------|-----------------|---------------------|
+| 2 | - Analyze and identify causes of abnormal costs on AWS account.<br>- Complete: **Cost and Usage Management** and **Managing Quotas with Service Quotas**. | 07/10/2025 | 08/10/2025 | [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) |
+| 3 | - Design and partition project infrastructure architecture.<br>- Propose basic architecture templates for team reference.<br>- Complete: **Building Highly Available Web Applications**.<br>- **Workshop Activity:** Configure NAT Gateways in public subnets and complete Security Groups setup. | 09/10/2025 | 10/10/2025 | [FCJ Community](https://www.facebook.com/groups/awsstudygroupfcj), [Workshop 5.3](5-Workshop/5.3-VPC-Network/) |
+| 4 | - Build code skeleton and configure initial project files.<br>- Set up development environment.<br>- Complete: **Development Environment with AWS Toolkit for VS Code**.<br>- **Workshop Activity:** Begin Database & Storage Setup - plan RDS PostgreSQL and ElastiCache Redis configurations. | 11/10/2025 | 13/10/2025 | VS Code + AWS Toolkit, [Workshop 5.6](5-Workshop/5.6-Database-Storage/) |
+| 5 | - Register for AWS Skill Builder and explore courses.<br>- Study EC2 optimization techniques.<br>- Complete: **Right-Sizing with EC2 Resource Optimization**. | 11/10/2025 | 12/10/2025 | [AWS Skill Builder](https://skillbuilder.aws/) |
 
+### AWS Skill Builder Courses Completed
 
-### Week 5 Achievements:
+| Course | Category | Status |
+|--------|----------|--------|
+| Cost and Usage Management | Cost Optimization | ✅ |
+| Managing Quotas with Service Quotas | Operations | ✅ |
+| Billing Console Delegation | Cost Management | ✅ |
+| Right-Sizing with EC2 Resource Optimization | Cost Optimization | ✅ |
+| Development Environment with AWS Toolkit for VS Code | Development | ✅ |
+| Building Highly Available Web Applications | Architecture | ✅ |
+| Database Essentials with Amazon RDS | Database | ✅ |
+| NoSQL Database Essentials with Amazon DynamoDB | Database | ✅ |
+| In-Memory Caching with Amazon ElastiCache | Database | ✅ |
+| Command Line Operations with AWS CLI | Operations | ✅ |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Week 5 Achievements
 
-* Successfully created and configured an AWS Free Tier account.
+**Technical Skills Acquired:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+*Cost Optimization:*
+- Identified causes of abnormal AWS costs:
+  - Incomplete deletion of EC2 resources (EBS volumes, Elastic IPs)
+  - Lack of control over user accounts and IAM permissions
+  - Resources left running in unused regions
+- Learned AWS cost management best practices:
+  - **AWS Budgets** for proactive cost alerts
+  - **Cost Explorer** for analyzing spending patterns
+  - **Service Quotas** for managing account limits
+  - **Billing Console Delegation** for team cost visibility
+- Proposed cost optimization measures for the team
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+*Architecture Design:*
+- Successfully designed project infrastructure architecture
+- Created reference architecture templates for team adoption
+- Applied **High Availability** principles:
+  - Multi-AZ deployments
+  - Load balancing strategies
+  - Database replication patterns
+  - Fault-tolerant design patterns
 
-* Used AWS CLI to perform basic operations such as:
+*Development Environment:*
+- Set up AWS Toolkit for VS Code for streamlined development
+- Mastered AWS CLI for command-line operations
+- Built robust code skeleton with initial configuration files
+- Established project foundation for team collaboration
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+*Database Services:*
+- Understood **Amazon RDS** for relational database needs
+- Learned **DynamoDB** for NoSQL workloads
+- Explored **ElastiCache** for in-memory caching (Redis/Memcached)
+- Applied database selection criteria based on use cases
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+**Project Progress:**
+- Registered and activated AWS Skill Builder account
+- Began exploring advanced courses and learning paths
+- Infrastructure architecture finalized and documented
+- Development environment configured and ready for coding
+
+**Workshop Progress - Network & Database Setup:**
+- Completed NAT Gateway deployment in both public subnets for private subnet internet access
+- Configured Security Groups for ALB, ECS, RDS, and ElastiCache tiers with least-privilege access
+- Set up route tables: Public routes to Internet Gateway, Private routes to NAT Gateways
+- Designed RDS PostgreSQL Multi-AZ configuration for high availability
+- Planned ElastiCache Redis cluster for session management and caching
+- Configured S3 buckets for static assets and document storage
+
+**Key Takeaways:**
+- Cost optimization starts with visibility - use Cost Explorer daily
+- Right-sizing EC2 instances can reduce costs by 30-50%
+- High availability requires planning across multiple AZs
+- AWS Toolkit for VS Code significantly improves developer productivity
+- Database selection depends on data model, scale, and access patterns
+- Service Quotas prevent unexpected capacity limitations
+- NAT Gateways enable private subnet resources to access internet securely
+- Security Groups provide defense-in-depth with multiple layers of protection
